@@ -1,6 +1,10 @@
-DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE tasks (
+CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  description TEXT
+  name VARCHAR(80),
+  email VARCHAR(80),
+  branch VARCHAR(80),
+  status VARCHAR(80),
+  ETS date
 );
