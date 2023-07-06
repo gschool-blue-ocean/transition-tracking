@@ -10,7 +10,11 @@
     "test:api": "npm run test --prefix=api"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "concurrently": "^7.1.0",
     "prettier": "^2.8.4"
+  },
+  "dependencies": {
+    "postgres": "^3.3.5"
   }
 }
