@@ -23,7 +23,8 @@ const App = () => {
 
 	return (
 		<main>
-			<h1>Cohorts</h1>
+			<h1>Transition Tracker</h1>
+			<h2>Cohorts</h2>
 			<div className={c.cohorts}>
 				{cohorts.length > 0 ? (
 					cohorts.map(({ id, instructor }) => (
