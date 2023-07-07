@@ -1,17 +1,19 @@
 import { Router } from "express";
 import {
-  getAllCohort,
-  getSpeCohort,
-  addTasks,
-  delTask,
+	getAllCohorts,
+	getAllStudents,
+	getSpeCohort,
+	addingCohort,
+	delCohort,
 } from "../Controller/userController.js";
 
 const router = Router();
 
 //Routes for User
-router.get("/cohort", getAllCohort);
-router.get("/cohort/:cohort_name", getSpeCohort);
-router.post("tasks", addTasks);
-router.delete("/tasks/:id", delTask);
+router.get("/cohort", getAllCohorts);
+router.get("/students", getAllStudents);
+router.get("/cohort/:id", getSpeCohort);
+router.post("/cohort", addingCohort);
+router.delete("/cohort/:id", delCohort);
 
 export default router;

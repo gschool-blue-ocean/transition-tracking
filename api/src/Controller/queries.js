@@ -1,7 +1,9 @@
-export const allCohort = `SELECT * FROM cohort`;
+export const allCohorts = `SELECT * FROM cohort`;
 
-export const speCohort = `SELECT * FROM student JOIN cohort ON cohort.cohort_name = student.cohort_name WHERE cohort.cohort_name = $1`;
+export const allStudents = `SELECT * FROM students`;
 
-export const addingTask = `SELECT * FROM tasks WHERE id = $1`;
+export const speCohort = `SELECT * FROM cohort WHERE id = $1`;
 
-export const deletingTask = `DELETE FROM tasks WHERE id = $1`;
+export const addCohort = `SELECT * FROM cohort WHERE id = $1`;
+
+export const deleteCohort = `DELETE FROM cohort WHERE id = $1`;
