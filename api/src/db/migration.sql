@@ -1,16 +1,16 @@
-DROP TABLE IF EXISTS cohort;
 DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS cohort;
 
 CREATE TABLE cohort (
   id SERIAL PRIMARY KEY,
-  cohort_id VARCHAR(50),
+  cohort_id INT,
   instructor VARCHAR(80),
-  start DATE,
-  end DATE
+  start_date DATE,
+  end_date DATE
 );
 
 CREATE TABLE students (
-  id SERIAL FOREIGN KEY,
+  id SERIAL PRIMARY KEY,
   first_name VARCHAR(80),
   last_name VARCHAR(80),
   email VARCHAR(80),
@@ -21,5 +21,6 @@ CREATE TABLE students (
   linkedin VARCHAR(80),
   github VARCHAR(80),
   comment TEXT,
-  cohort_id VARCHAR(80)
+  cohort_id INT,
+  FOREIGN KEY (cohort_id) REFERENCES cohort(id)
 );
