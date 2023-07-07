@@ -1,43 +1,62 @@
 import React, { useEffect, useState } from "react";
-import Counter from "../Counter/Counter.jsx";
 import c from "./App.module.css";
 import axios from "axios";
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+	const [cohorts, setCohorts] = useState([]);
+	const [students, setStudents] = useState([]);
 
-  const getTasks = () => {
-    axios.get("/api/tasks").then((res) => {
-      setTasks(res.data);
-    });
-  };
+	const getCohorts = () => {
+		axios.get("/api/cohort").then((res) => {
+			setCohorts(res.data);
+		});
+	};
 
-  useEffect(getTasks, []);
+	const getStudents = () => {
+		axios.get("/api/students").then((res) => {
+			setStudents(res.data);
+		});
+	};
 
-  const deleteTask = async (id) => {
-    await axios.delete(`/api/tasks/${id}`);
-    return getTasks();
-  };
+	useEffect(getCohorts, []);
+	useEffect(getStudents, []);
 
-  return (
-    <main>
-      <h2>Tasks</h2>
-      <div className={c.tasks}>
-        {tasks.length > 0 ? (
-          tasks.map(({ id, description }) => (
-            <div key={id}>
-              <button onClick={() => deleteTask(id)}>X</button>
-              <span>{description}</span>
-            </div>
-          ))
-        ) : (
-          <span>No Tasks Remaining</span>
-        )}
-      </div>
-      <h2>Counter</h2>
-      <Counter />
-    </main>
-  );
+	return (
+		<main>
+			<h1>Transition Tracker</h1>
+			<h2>Cohorts</h2>
+			<div className={c.cohorts}>
+				{cohorts.length > 0 ? (
+					cohorts.map(({ id, instructor }) => (
+						<div key={id}>
+							<label>
+								<h3>Instructor(s)</h3>
+							</label>
+							<span>{instructor}</span>
+						</div>
+					))
+				) : (
+					<span>No Instructor found.</span>
+				)}
+			</div>
+			<div className={c.cohorts}>
+				{students.length > 0 ? (
+					students.map(({ id, first_name, last_name }) => (
+						<div key={id}>
+							<label>
+								<h3>Students(s)</h3>
+							</label>
+							<span>
+								{first_name} {last_name}
+							</span>
+						</div>
+					))
+				) : (
+					<span>No students found.</span>
+				)}
+			</div>
+		</main>
+	);
 };
 
 export default App;
