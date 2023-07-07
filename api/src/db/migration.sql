@@ -1,6 +1,7 @@
 -- Drop existing tables if they exist
 DROP TABLE IF EXISTS student;
 DROP TABLE IF EXISTS cohort;
+DROP TABLE IF EXISTS tasks;
 
 -- Create the cohort table
 CREATE TABLE cohort (
