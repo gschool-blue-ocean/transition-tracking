@@ -39,7 +39,7 @@ for (let i = 0; i < 1000; i++) {
   const linkedin = `https://www.linkedin.com/in/${first_name}${last_name}/`;
   const github = `https://github.com/` + faker.internet.displayName();
   const comment = "";
-  const cohort_name = faker.helpers.arrayElement([
+  const cohort_id = faker.helpers.arrayElement([
     "mcsp16",
     "mcsp17",
     "mcsp18",
@@ -52,15 +52,11 @@ for (let i = 0; i < 1000; i++) {
     "mcsp25",
   ]);
 
-  // await sql`INSERT INTO student() VALUES ()`
-
   writablestream.write(
-    `${first_name},${last_name},${email},${phone},${branch},${status},${ets},${linkedin},${github},${comment},${cohort_name}\n`
+    `${first_name},${last_name},${email},${phone},${branch},${status},${ets},${linkedin},${github},${comment},${cohort_id}\n`
   );
 }
+
 writablestream.close();
+await sql`COPY students (first_name, last_name, email, phone, branch, status, ets, linkedin, github, comment, cohort_id) FROM '/Users/shuluo/Code/mcsp/transition-tracking/api/src/db/student_data.csv' WITH DELIMITER ',' CSV`;
 sql.end();
-
-// await sql`COPY student (first_name, last_name, email, phone, branch, status, ets, linkedin, github, comment, cohort_name) FROM '/api/src/db/student_data.csv' WITH DELIMITER ',' CSV`;
-
-await sql`COPY student (first_name, last_name, email, phone, branch, status, ets, linkedin, github, comment, cohort_name) FROM '/Users/shuluo/Code/mcsp/transition-tracking/api/src/db/student_data.csv' WITH DELIMITER ',' CSV`;
