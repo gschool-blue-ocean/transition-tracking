@@ -115,6 +115,8 @@ INSERT INTO cohort(
     '2023-12-08'
 );
 
+-- COPY student (first_name, last_name, email, phone, branch, status, ets, linkedin, github, comment, cohort_name) FROM '/student_data.csv' WITH DELIMITER ',' CSV;
+
 -- INSERT INTO student(
 --     first_name,
 --     last_name,
