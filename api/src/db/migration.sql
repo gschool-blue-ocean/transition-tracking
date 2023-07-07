@@ -23,4 +23,4 @@ CREATE TABLE students (
   comment TEXT,
   cohort_id INT,
   FOREIGN KEY (cohort_id) REFERENCES cohort(id)
-);
+  );
