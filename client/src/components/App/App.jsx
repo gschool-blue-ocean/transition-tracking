@@ -24,11 +24,12 @@ const App = () => {
 	return (
 		<main>
 			<h1>Transition Tracker</h1>
-			<h2>Cohorts</h2>
 			<div className={c.cohorts}>
 				{cohorts.length > 0 ? (
-					cohorts.map(({ id, instructor }) => (
+					cohorts.map(({ id, instructor, cohort_id }) => (
 						<div key={id}>
+							<h2>Cohort: {cohort_id}</h2>
+
 							<label>
 								<h3>Instructor(s)</h3>
 							</label>

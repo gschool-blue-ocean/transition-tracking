@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import postgres from "postgres";
 import fs from "fs";
 
-const sql = postgres("postgress://localhost:5433/blueocean");
+const sql = postgres("postgress://localhost:5432/blueocean");
 const writablestream = fs.createWriteStream("./api/src/db/student_data.csv");
 
 for (let i = 0; i < 1000; i++) {
@@ -53,6 +53,6 @@ for (let i = 0; i < 1000; i++) {
 
 writablestream.close();
 
-await sql`COPY student (first_name, last_name, email, phone, branch, status, ets, linkedin, github, comment, cohort_id) FROM '/Users/shuluo/Code/mcsp/transition-tracking/api/src/db/student_data.csv' WITH DELIMITER ',' CSV`;
+await sql`COPY students (first_name, last_name, email, phone, branch, status, ets, linkedin, github, comment, cohort_id) FROM 'api/src/db/student_data.csv' WITH DELIMITER ',' CSV`;
 
 sql.end();
