@@ -58,5 +58,7 @@ for (let i = 0; i < 1000; i++) {
 }
 
 writablestream.close();
-await sql`COPY students (first_name, last_name, email, phone, branch, status, ets, linkedin, github, comment, cohort_id) FROM '/Users/shuluo/Code/mcsp/transition-tracking/api/src/db/student_data.csv' WITH DELIMITER ',' CSV`;
+
+await sql`COPY student (first_name, last_name, email, phone, branch, status, ets, linkedin, github, comment, cohort_id) FROM '/Users/shuluo/Code/mcsp/transition-tracking/api/src/db/student_data.csv' WITH DELIMITER ',' CSV`;
+
 sql.end();

@@ -115,8 +115,6 @@ INSERT INTO cohort(
   '2023-12-08'
 );
 
-
-
 INSERT INTO students(first_name,
   last_name,
   email,
