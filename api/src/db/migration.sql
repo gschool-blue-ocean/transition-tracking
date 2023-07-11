@@ -17,7 +17,7 @@ CREATE TABLE students (
   phone VARCHAR(80),
   branch VARCHAR(80),
   status VARCHAR(80),
-  ETS DATE,
+  ets DATE,
   linkedin VARCHAR(80),
   github VARCHAR(80),
   comment TEXT,
