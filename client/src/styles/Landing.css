@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 1rem;
+  background-color: #030303; /* Dark background color */
+  color: #ffffff; /* Text color */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.landing {
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.hero {
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.title::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  animation-duration: 1s;
+  animation-timing-function: steps(1, end);
+  animation-fill-mode: forwards;
+}
+
+.title.typing::after {
+  animation-name: typing;
+}
+
+.title.deleting::after {
+  animation-name: deleting;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes deleting {
+  from {
+    width: 100%;
+  }
+}
+
+.desc {
+  font-weight: lighter;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.mcsp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #252525; /* Darker background color */
+  width: 50rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.get-started {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0070c9; /* Blue color */
+  margin-bottom: 1rem;
+}
+
+.select-mcsp {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #dc7451; /* Orange color */
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.select-mcsp:hover {
+  background-color: #c05c39; /* Darker shade of orange */
+}
+
+
+
+.mockup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 2rem;
+  max-width: 45%;
+  height: auto;
+  margin-left: 900px;
+  margin-top: 125px;
+}
+
+
