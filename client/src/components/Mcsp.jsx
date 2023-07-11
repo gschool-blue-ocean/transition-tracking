@@ -1,7 +1,10 @@
 import React from 'react'
 
-const Mcsp = ({handleFilterChange, selectedCohort, setStudents }) => {
-
+export default function Mcsp() {
+  return (
+    <div>
+      MCSP
+    </div>
+  )
 }
 
-export default Mcsp
