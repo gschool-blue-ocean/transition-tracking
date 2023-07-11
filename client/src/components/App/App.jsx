@@ -11,10 +11,10 @@ const App = () => {
     <div className="App">
     <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" exact element={<LandingPage /> }/>
-        <Route path="/mcsp" exact element={<Mcsp />} />
-      </Routes>
+        <Routes>
+          <Route path="/" exact element={<LandingPage /> }/>
+          <Route path="/mcsp" exact element={<Mcsp />} />
+        </Routes>
       <Footer />
     </Router>
     </div>
