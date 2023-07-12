@@ -27,9 +27,9 @@ export const getAllStudents = async (req, res) => {
 
 export const getSpeCohort = async (req, res) => {
   try {
-    const id = Number(req.params.id);
+    const id = req.params.id;
     const result = await db.query(speCohort, [id]);
-    res.send(result.rows[0]);
+    res.send(result.rows);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
