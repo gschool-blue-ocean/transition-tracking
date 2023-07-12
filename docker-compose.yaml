@@ -10,6 +10,8 @@ services:
       - pg-data:/var/lib/postgresql/data
       - ./api/src/db/migration.sql:/docker-entrypoint-initdb.d/migration.sql
       - ./api/src/db/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+      - ./api/src/db/student_data.csv:/docker-entrypoint-initdb.d/student_data.csv
+      - ./api/src/db/seed_bulk.sql:/docker-entrypoint-initdb.d/seed_bulk.sql
 
   api:
     build: ./api
