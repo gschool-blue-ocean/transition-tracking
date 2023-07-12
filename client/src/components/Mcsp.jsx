@@ -1,6 +1,7 @@
 import React from "react";
 import Students from "./Students";
 
+
 export default function Mcsp({ students }) {
   return (
     <div>
@@ -8,6 +9,7 @@ export default function Mcsp({ students }) {
       <div>
         <Students students={students} />
       </div>
+
     </div>
   );
 }
