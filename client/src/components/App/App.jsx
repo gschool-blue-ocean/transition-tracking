@@ -14,9 +14,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" exact element={<LandingPage />} />
-
           <Route path="/mcsp" exact element={<Mcsp students={students} />} />
-
         </Routes>
         <Footer />
       </Router>
