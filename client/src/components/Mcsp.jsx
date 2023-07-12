@@ -1,11 +1,15 @@
 import React from "react";
-import Student from "../Student.jsx";
+import Students from "./Students";
+
 
 export default function Mcsp({ students }) {
   return (
     <div>
       MCSP
-      <Student students={students} />
+      <div>
+        <Students students={students} />
+      </div>
+
     </div>
   );
 }

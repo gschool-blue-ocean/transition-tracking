@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import mockup from "/assets/mockup.png";
 import { Link } from "react-router-dom";
 import "../styles/Landing.css";
+import Dropdown from "./Dropdown";
 
-function LandingPage() {
+function LandingPage({ cohort, students, setStudents }) {
   useEffect(() => {
     const typingText = document.getElementById("typing-text");
     if (typingText) {
@@ -40,6 +41,7 @@ function LandingPage() {
       type();
     }
   }, []);
+
   return (
     <div className="landing">
       <div className="hero">
@@ -60,6 +62,7 @@ function LandingPage() {
           and drive student success.
         </h2>
       </div>
+
       <div className="mcsp">
         <h1 className="get-started">Get Started by selecting a cohort</h1>
 
@@ -73,57 +76,14 @@ function LandingPage() {
           >
             MCSP...
           </button>
+
           <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" id="16" href="/mcsp">
-                MCSP16
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" id="17" href="/mcsp">
-                MCSP17
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" id="18" href="/mcsp">
-                MCSP18
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" id="19" href="/mcsp">
-                MCSP19
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" id="20" href="/mcsp">
-                MCSP20
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" id="21" href="/mcsp">
-                MCSP21
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" id="22" href="/mcsp">
-                MCSP22
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" id="23" href="/mcsp">
-                MCSP23
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" id="24" href="/mcsp">
-                MCSP24
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" id="25" href="/mcsp">
-                MCSP25
-              </a>
-            </li>
+            <Dropdown
+              cohort={cohort}
+              students={students}
+              setStudents={setStudents}
+            />
+
             <li>
               <hr className="dropdown-divider" />
             </li>
@@ -135,6 +95,7 @@ function LandingPage() {
           </ul>
         </div>
       </div>
+
       <div className="mockup-wrapper">
         <img src={mockup} alt="mockup" className="mockup" />
       </div>

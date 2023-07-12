@@ -8,15 +8,35 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
 
+  const [cohort, setCohort] = useState([]);
+  const [students, setStudents] = useState([]);
+  useEffect(() => {
+    fetch("/api/cohort")
+      .then((res) => res.json())
+      .then((cohort) => {
+        setCohort(cohort);
+      });
+  }, []);
+
+
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" exact element={<LandingPage />} />
-
+          <Route
+            path="/"
+            exact
+            element={
+              <LandingPage
+                cohort={cohort}
+                students={students}
+                setStudents={setStudents}
+              />
+            }
+          />
           <Route path="/mcsp" exact element={<Mcsp students={students} />} />
-
+ 
         </Routes>
         <Footer />
       </Router>
