@@ -15,7 +15,7 @@ const Student = ({ students }) => {
           <p>Email: {student.email}</p>
           <p>Phone: {student.phone}</p>
           <p>Branch: {student.branch}</p>
-          <p>ETS: {student.ets}</p>
+          <p>ETS: {student.ets.split("T")[0]}</p>
           <p>Status: {student.status}</p>
           <p>LinkedIn: {student.linkedin}</p>
           <p>GitHub: {student.github}</p>

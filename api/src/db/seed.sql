@@ -114,29 +114,3 @@ INSERT INTO cohort(
   '2023-08-14',
   '2023-12-08'
 );
-
-INSERT INTO students(
-  first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id
-) VALUES(
-  'Phillip', 
-  'Sussman', 
-  'phillip@test.com', 
-  '123-123-1234', 
-  'USAF', 
-  'CLEARING', 
-  '2023-08-28', 
-  '/in/phillipsussman', 
-  '/Sussman-P', 
-  'fly guy', 
-  'mcsp16'
-);
