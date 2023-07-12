@@ -7,13 +7,16 @@ import Footer from "../Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
+
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" exact element={<LandingPage />} />
-          <Route path="/mcsp" exact element={<Mcsp />} />
+
+          <Route path="/mcsp" exact element={<Mcsp students={students} />} />
+
         </Routes>
         <Footer />
       </Router>
@@ -22,3 +25,4 @@ const App = () => {
 };
 
 export default App;
+
