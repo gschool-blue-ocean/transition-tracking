@@ -3,6 +3,7 @@ import mockup from "/assets/mockup.png";
 import { Link } from "react-router-dom";
 import "../styles/Landing.css";
 import Dropdown from "./Dropdown";
+import CreateCohort from "./CreateCohort";
 
 function LandingPage({ cohort, students, setStudents }) {
   useEffect(() => {
@@ -89,7 +90,7 @@ function LandingPage({ cohort, students, setStudents }) {
             </li>
             <li>
               <a className="dropdown-item" id="createCohort" href="#">
-                Create a New Cohort
+                <CreateCohort />
               </a>
             </li>
           </ul>
