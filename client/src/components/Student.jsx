@@ -3,8 +3,8 @@ import axios from "axios";
 
 const Student = ({ students }) => {
   return (
-    //student.branch
-    //Tayla's added code with html
+    // student.branch
+    // Tayla's added code with html
 
     <div>
       {students.map((student) => {
