@@ -7,6 +7,7 @@ import Footer from "../Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
+
   const [cohort, setCohort] = useState([]);
   const [students, setStudents] = useState([]);
   useEffect(() => {
@@ -16,6 +17,7 @@ const App = () => {
         setCohort(cohort);
       });
   }, []);
+
 
   return (
     <div className="App">
@@ -34,6 +36,7 @@ const App = () => {
             }
           />
           <Route path="/mcsp" exact element={<Mcsp students={students} />} />
+ 
         </Routes>
         <Footer />
       </Router>
@@ -42,3 +45,4 @@ const App = () => {
 };
 
 export default App;
+
