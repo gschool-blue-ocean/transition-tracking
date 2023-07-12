@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Student = ({ students }) => {
-  console.log(students[0]);
   // student.branch
   // Tayla's added code with html
   return (
@@ -19,7 +18,13 @@ const Student = ({ students }) => {
           <p>Status: {student.status}</p>
           <p>LinkedIn: {student.linkedin}</p>
           <p>GitHub: {student.github}</p>
-          <p>Comment: {student.comment}</p>
+          <div className="comment">
+            {student.comment
+              ? student.comment
+                  .split("%")
+                  .map((comment, index) => <p key={index}>{comment}</p>)
+              : ""}
+          </div>
           <br />
         </div>
       ))}
