@@ -62,7 +62,7 @@ for (let i = 0; i < 1000; i++) {
     } else {
       commentDetail3 += "H";
     }
-    comment += `${commentName} ${commentDetail1} ${commentDetail2} ${commentDetail3}%`;
+    comment += `${commentName} ${commentDetail1} ${commentDetail2} ${commentDetail3}@#$@#$`;
   } else if (commentControl >= 80) {
     for (let i = 0; i < 3; i++) {
       const commentName = faker.helpers.arrayElement([
@@ -82,7 +82,7 @@ for (let i = 0; i < 1000; i++) {
       } else {
         commentDetail3 += "H";
       }
-      comment += `${commentName} ${commentDetail1} ${commentDetail2} ${commentDetail3}%`;
+      comment += `${commentName} ${commentDetail1} ${commentDetail2} ${commentDetail3}@#$@#$`;
     }
   }
 

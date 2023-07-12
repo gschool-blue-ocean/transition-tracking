@@ -21,7 +21,7 @@ const Student = ({ students }) => {
           <div className="comment">
             {student.comment
               ? student.comment
-                  .split("%")
+                  .split("@#$@#$")
                   .map((comment, index) => <p key={index}>{comment}</p>)
               : ""}
           </div>
