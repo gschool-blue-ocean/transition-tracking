@@ -8,19 +8,26 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
 
+<<<<<<< HEAD
     return (
       <div className="App">
+=======
+  return (
+    <div className="App">
+>>>>>>> main
       <Router>
         <Navbar />
-          <Routes>
-            <Route path="/" exact element={<LandingPage /> }/>
-            <Route path="/mcsp" exact element={<Mcsp />} />
-          </Routes>
+        <Routes>
+          <Route path="/" exact element={<LandingPage />} />
+
+          <Route path="/mcsp" exact element={<Mcsp students={students} />} />
+
+        </Routes>
         <Footer />
       </Router>
-      </div>
-    );
+    </div>
+  );
 };
 
-
 export default App;
+

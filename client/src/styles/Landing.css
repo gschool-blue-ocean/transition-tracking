@@ -7,7 +7,7 @@ body {
 }
 
 .landing {
-  margin-left: 200px;
+  margin-left: 100px;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -18,7 +18,7 @@ body {
 }
 
 .title {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
   margin-bottom: 1rem;
   overflow: hidden;
@@ -56,7 +56,7 @@ body {
 
 .desc {
   font-weight: lighter;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   margin-bottom: 2rem;
 }
 
@@ -96,18 +96,16 @@ body {
   background-color: #c05c39; /* Darker shade of orange */
 }
 
-.mockup-wrapper {
+
+
+.mockup {
   position: absolute;
   top: 0;
   right: 0;
   padding-top: 2rem;
-  padding-right: 2rem;
-}
-
-.mockup {
-  max-width: 75%;
+  max-width: 45%;
   height: auto;
-  margin-left: 1050px;
+  margin-left: 900px;
   margin-top: 125px;
 }
 
