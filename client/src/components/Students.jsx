@@ -7,7 +7,6 @@ const Student = ({ students }) => {
   // Tayla's added code with html
   return (
     <div className="students">
-      Students
       {students.map((student) => (
         <div key={student.id} className="student">
           <h2>
@@ -17,6 +16,11 @@ const Student = ({ students }) => {
           <p>Phone: {student.phone}</p>
           <p>Branch: {student.branch}</p>
           <p>ETS: {student.ets}</p>
+          <p>Status: {student.status}</p>
+          <p>LinkedIn: {student.linkedin}</p>
+          <p>GitHub: {student.github}</p>
+          <p>Comment: {student.comment}</p>
+          <br />
         </div>
       ))}
     </div>
