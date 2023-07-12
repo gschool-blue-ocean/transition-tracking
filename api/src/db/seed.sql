@@ -115,7 +115,8 @@ INSERT INTO cohort(
   '2023-12-08'
 );
 
-  INSERT INTO students(first_name,
+INSERT INTO students(
+  first_name,
   last_name,
   email,
   phone,
@@ -125,112 +126,17 @@ INSERT INTO cohort(
   linkedin,
   github,
   comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp16');
-
-  INSERT INTO students(first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp17');
-
-  INSERT INTO students(first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp18');
-
-  INSERT INTO students(first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp19');
-
-  INSERT INTO students(first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp20');
-
-  INSERT INTO students(first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp21');
-
-  INSERT INTO students(first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp22');
-
-  INSERT INTO students(first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp23');
-
-  INSERT INTO students(first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp24');
-  
-  INSERT INTO students(first_name,
-  last_name,
-  email,
-  phone,
-  branch,
-  status,
-  ETS,
-  linkedin,
-  github,
-  comment,
-  cohort_id) VALUES('Phillip', 'Sussman', 'phillip@test.com', '123-123-1234', 'USAF', 'CLEARING', '2023-08-28', '/in/phillipsussman', '/Sussman-P', 'fly guy', 'mcsp25');
+  cohort_id
+) VALUES(
+  'Phillip', 
+  'Sussman', 
+  'phillip@test.com', 
+  '123-123-1234', 
+  'USAF', 
+  'CLEARING', 
+  '2023-08-28', 
+  '/in/phillipsussman', 
+  '/Sussman-P', 
+  'fly guy', 
+  'mcsp16'
+);
