@@ -45,6 +45,7 @@ const Student = ({ students, setStudents }) => {
             <Modal
               onClose={closeModal}
               studentId={student.id}
+              students={students}
               setStudents={setStudents}
             />
           )}

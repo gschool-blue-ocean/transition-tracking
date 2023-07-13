@@ -15,13 +15,13 @@ function Modal({ onClose, studentId, setStudents }) {
         comment: comment,
       })
       .then(() => {
-        setStudents((students) => {
-          const studentToUpdate = students.find(
-            (student) => student.id === studentId
-          );
-          studentToUpdate.comment = comment;
-          return [...students];
-        });
+        // setStudents((students) => {
+        //   const studentToUpdate = students.find(
+        //     (student) => student.id === studentId
+        //   );
+        //   studentToUpdate.comment = comment;
+        //   return [...students];
+        // });
       });
     onClose();
   };
@@ -30,7 +30,6 @@ function Modal({ onClose, studentId, setStudents }) {
       <form onSubmit={handleSubmit}>
         <input
           className="text-black"
-          placeholder="Enter a comment..."
           placeholder="Appointment: (date)"
           type="text"
           onChange={handleComment}
