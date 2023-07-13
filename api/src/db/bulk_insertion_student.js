@@ -32,6 +32,7 @@ for (let i = 0; i < 1000; i++) {
 			? "Clearing"
 			: "Seperated";
 
+
 	const linkedin = `https://www.linkedin.com/in/${first_name}${last_name}/`;
 	const github = `https://github.com/` + faker.internet.displayName();
 	let comment = "";
@@ -47,6 +48,53 @@ for (let i = 0; i < 1000; i++) {
 		"mcsp24",
 		"mcsp25",
 	]);
+  
+  const linkedin = `https://www.linkedin.com/in/${first_name}${last_name}/`;
+  const github = `https://github.com/` + faker.internet.displayName();
+  // handle comment section
+  var comment = "";
+  const commentControl = faker.number.int(100);
+  if (commentControl >= 30 && commentControl < 80) {
+    const commentName = faker.helpers.arrayElement([
+      "Medical Appointment",
+      "Clearing Appointment",
+      "Office Hour Requested",
+      "Family Emergency",
+    ]);
+    const commentDetail1 = faker.date
+      .future({ years: 1 })
+      .toISOString()
+      .split("T")[0];
+    const commentDetail2 = `${faker.number.int({ min: 6, max: 18 })}:00`;
+    var commentDetail3 = faker.number.int({ min: 1, max: 4 });
+    if (commentDetail3 > 3) {
+      commentDetail3 = "All Day";
+    } else {
+      commentDetail3 += "H";
+    }
+    comment += `${commentName} ${commentDetail1} ${commentDetail2} ${commentDetail3}@#$@#$`;
+  } else if (commentControl >= 80) {
+    for (let i = 0; i < 3; i++) {
+      const commentName = faker.helpers.arrayElement([
+        "Medical Appointment",
+        "Clearing Appointment",
+        "Office Hour Requested",
+        "Family Emergency",
+      ]);
+      const commentDetail1 = faker.date
+        .future({ years: 1 })
+        .toISOString()
+        .split("T")[0];
+      const commentDetail2 = `${faker.number.int({ min: 6, max: 18 })}:00`;
+      var commentDetail3 = faker.number.int({ min: 1, max: 4 });
+      if (commentDetail3 > 3) {
+        commentDetail3 = "All Day";
+      } else {
+        commentDetail3 += "H";
+      }
+      comment += `${commentName} ${commentDetail1} ${commentDetail2} ${commentDetail3}@#$@#$`;
+    }
+  }
 
 	writablestream.write(
 		`${first_name},${last_name},${email},${phone},${branch},${ets},${status},${linkedin},${github},${comment},${cohort_id}\n`
