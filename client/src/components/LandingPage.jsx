@@ -5,7 +5,7 @@ import "../styles/Landing.css";
 import Dropdown from "./Dropdown";
 import CreateCohort from "./CreateCohort";
 
-function LandingPage({ cohort, students, setStudents }) {
+function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
   useEffect(() => {
     const typingText = document.getElementById("typing-text");
     if (typingText) {
@@ -68,32 +68,27 @@ function LandingPage({ cohort, students, setStudents }) {
         <h1 className="get-started">Get Started by selecting a cohort</h1>
 
         <div className="btn-group">
-          <button
-            type="button"
-            className="btn btn-danger dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            id="dropdown"
-          >
-            MCSP...
-          </button>
+          <button onClick={() => setIsDDOpen((prev) => !prev)}>MCSP..</button>
 
-          <ul className="dropdown-menu">
-            <Dropdown
-              cohort={cohort}
-              students={students}
-              setStudents={setStudents}
-            />
+          {isDDOpen && (
+            <ul className="dropdown-menu">
+              <Dropdown
+                cohort={cohort}
+                students={students}
+                setStudents={setStudents}
+                setIsDDOpen={setIsDDOpen}
+              />
 
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" id="createCohort" href="#">
-                <CreateCohort />
-              </a>
-            </li>
-          </ul>
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
+              <li>
+                <a className="dropdown-item" id="createCohort" href="/mcsp">
+                  <CreateCohort />
+                </a>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
 

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Navbar() {
   return (
     <div>
-      <h1 className='bg-white'>Navbar</h1>
+      <h1 className="bg-white">Navbar</h1>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

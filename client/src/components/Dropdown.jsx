@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function Dropdown({ cohort, students, setStudents }) {
+function Dropdown({ cohort, setStudents, isDDOpen, setIsDDOpen}) {
+
+  
   const handleClick = (id) => {
     fetch(`api/cohort/${id}`)
       .then((res) => res.json())
       .then((students) => {
         setStudents(students);
       });
+
+      setIsDDOpen(false);
   };
+
 
   return (
     <div className="cohort">
