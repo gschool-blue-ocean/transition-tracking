@@ -3,6 +3,7 @@ import Students from "./Students";
 import Dashboard from "./Dashboard";
 import Dropdown from "./Dropdown";
 import CreateCohort from "./CreateCohort";
+import "../styles/Mcsp.css";
 
 export default function Mcsp({
   cohort,
@@ -12,7 +13,7 @@ export default function Mcsp({
   setIsDDOpen,
 }) {
   return (
-    <div>
+    <div className="app">
       <Dashboard students={students} />
       <Students students={students} />
       <div className="btn-group">

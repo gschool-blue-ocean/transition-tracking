@@ -67,28 +67,27 @@ function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
       <div className="mcsp">
         <h1 className="get-started">Get Started by selecting a cohort</h1>
 
-        <div className="btn-group">
-          <button onClick={() => setIsDDOpen((prev) => !prev)}>MCSP..</button>
-
-          {isDDOpen && (
-            <ul className="dropdown-menu">
-              <Dropdown
+        <ul class="menu">
+          <li>
+            <a href="#">MCSP...</a>
+    
+            <ul>
+            <Dropdown
                 cohort={cohort}
                 students={students}
                 setStudents={setStudents}
                 setIsDDOpen={setIsDDOpen}
               />
-
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
               <li>
                 <a className="dropdown-item" id="createCohort" href="/mcsp">
                   <CreateCohort />
                 </a>
               </li>
             </ul>
-          )}
+          </li>
+        </ul>
+
+        <div className="btn-group">
         </div>
       </div>
 
