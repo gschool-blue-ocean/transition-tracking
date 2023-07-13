@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Student = ({ students }) => {
+const Students = ({ students }) => {
   console.log(students[0]);
   // student.branch
   // Tayla's added code with html
@@ -27,4 +27,4 @@ const Student = ({ students }) => {
   );
 };
 
-export default Student;
+export default Students;
