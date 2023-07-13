@@ -34,7 +34,7 @@ function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
           currentWordIndex = (currentWordIndex + 1) % words.length;
           setTimeout(type, 500);
         } else {
-          const typingSpeed = isDeleting ? 50 : 150;
+          const typingSpeed = isDeleting ? 50 : 90;
           setTimeout(type, typingSpeed);
         }
       };
@@ -67,32 +67,27 @@ function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
       <div className="mcsp">
         <h1 className="get-started">Get Started by selecting a cohort</h1>
 
+        <ul class="menu">
+          <li>
+            <a href="#">MCSP...</a>
+    
+            <ul>
+            <Dropdown
+                cohort={cohort}
+                students={students}
+                setStudents={setStudents}
+                setIsDDOpen={setIsDDOpen}
+              />
+              <li>
+                <a className="dropdown-item" id="createCohort" href="/mcsp">
+                  <CreateCohort />
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
         <div className="btn-group">
-          <button
-            onClick={() => setIsDDOpen((prev) => !prev)}
-          >
-          MCSP..
-          </button>
-
-          {isDDOpen && (
-          <ul className="dropdown-menu">
-             <Dropdown
-               cohort={cohort}
-               students={students}
-               setStudents={setStudents}
-               setIsDDOpen={setIsDDOpen}
-             />
-
-             <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" id="createCohort" href="#">
-                <CreateCohort />
-              </a>
-            </li>
-          </ul>
-          )}
         </div>
       </div>
 

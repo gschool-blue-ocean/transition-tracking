@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Navbar from "../Navbar";
+// import axios from "axios";
+// import Navbar from "../Navbar";
 import LandingPage from "../LandingPage";
 import Mcsp from "../Mcsp";
 import Footer from "../Footer";

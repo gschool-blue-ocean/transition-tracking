@@ -37,7 +37,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
               <button className='mx-12'>Modal</button>
             </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
