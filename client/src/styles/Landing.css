@@ -75,27 +75,49 @@ body {
 .get-started {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #0070c9; /* Blue color */
+  color: #e7e7e7; /* Blue color */
   margin-bottom: 1rem;
 }
 
-.select-mcsp {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+.menu {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+}
+
+.menu > li > a {
+  background: #c57356;
   color: #fff;
-  background-color: #dc7451; /* Orange color */
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  display: block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
 }
 
-.select-mcsp:hover {
-  background-color: #c05c39; /* Darker shade of orange */
+.menu ul {
+  background: #ddd;
+  height: auto; /* Change to "auto" to fit all list items */
+  left: 0;
+  opacity: 0;
+  overflow-y: scroll; /* Add scroll feature */
+  position: absolute;
+  transition: all .5s ease;
+  top: 35px;
+  width: 100%;
+  max-height: 200px; /* Adjust maximum height as needed */
 }
 
+.menu li:hover ul {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu ul a {
+  color: #000;
+  display: block;
+  padding: 5px 20px;
+}
 
 
 .mockup {
