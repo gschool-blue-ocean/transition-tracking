@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Modal from "./Modal";
 
-const Student = ({ students }) => {
+const Student = ({ students, setStudents }) => {
+  const [showModal, setShowModal] = useState(false);
   // student.branch
   // Tayla's added code with html
+
+  const openModal = () => {
+    console.log("Modal Opened");
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    console.log("Modal closed");
+    setShowModal(false);
+  };
+
   return (
     <div className="students">
       {students.map((student) => (
@@ -27,6 +40,14 @@ const Student = ({ students }) => {
                 ))
               : {}}
           </div>
+          <button onClick={openModal}>|Make a Comment|</button>
+          {showModal && (
+            <Modal
+              onClose={closeModal}
+              studentId={student.id}
+              setStudents={setStudents}
+            />
+          )}
           <br />
         </div>
       ))}

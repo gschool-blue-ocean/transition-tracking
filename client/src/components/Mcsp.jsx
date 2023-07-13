@@ -1,5 +1,6 @@
 import React from "react";
 import Students from "./Students";
+import Dashboard from "./Dashboard";
 import Dropdown from "./Dropdown";
 import CreateCohort from "./CreateCohort";
 
@@ -12,6 +13,8 @@ export default function Mcsp({
 }) {
   return (
     <div>
+      <Dashboard students={students} />
+      <Students students={students} />
       <div className="btn-group">
         <button onClick={() => setIsDDOpen((prev) => !prev)}>MCSP..</button>
 
@@ -35,7 +38,7 @@ export default function Mcsp({
             </li>
           </ul>
         )}
-        <Students students={students} />
+        <Students students={students} setStudents={setStudents} />
       </div>
     </div>
   );
