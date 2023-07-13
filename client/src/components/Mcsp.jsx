@@ -1,41 +1,18 @@
 import React from "react";
 import Students from "./Students";
-import Dropdown from "./Dropdown";
-
+import Navbar from "./Navbar";
+import '../styles/Mcsp.css'
 
 export default function Mcsp({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
   return (
-    <div>
-       <div className="btn-group">
-          <button
-            onClick={() => setIsDDOpen((prev) => !prev)}
-          >
-          MCSP.. 
-          </button>
+      <div className="MCSP">
 
-          {isDDOpen && (
-          <ul className="dropdown-menu">
-             <Dropdown
-               cohort={cohort}
+      <Navbar cohort={cohort}
                students={students}
                setStudents={setStudents}
                isDDOpen={isDDOpen}
-               setIsDDOpen={setIsDDOpen}
-             />
-
-             <li>
-              <hr className="dropdown-divider" />
-             </li>
-             <li>
-               <a className="dropdown-item" id="createCohort" href="#">
-                 Create a New Cohort
-               </a>
-              </li>
-            </ul>
-            )}
+               setIsDDOpen={setIsDDOpen}/>
         <Students students={students} />
-      </div>
-
-    </div>
+        </div>
   );
 }
