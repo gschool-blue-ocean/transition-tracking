@@ -12,10 +12,11 @@ export default function Mcsp({
   isDDOpen,
   setIsDDOpen,
 }) {
+  console.log("from mcsp: ", setStudents);
   return (
     <div className="app">
       <Dashboard students={students} />
-      <Students students={students} />
+      <Students students={students} setStudents={setStudents} />
       <div className="btn-group">
         <button onClick={() => setIsDDOpen((prev) => !prev)}>MCSP..</button>
 
