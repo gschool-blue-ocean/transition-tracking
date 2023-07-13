@@ -44,9 +44,6 @@ export const addComment = async (req, res) => {
     const commentObject = {};
     commentObject[`${commentkey}`] = `${commentValue}`;
     const { id } = req.params;
-
-    console.log(commentObject, "COMMENT");
-
     if (!comment) {
       res.sendStatus(422);
       return;

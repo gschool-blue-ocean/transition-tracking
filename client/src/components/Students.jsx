@@ -4,6 +4,7 @@ import Modal from "./Modal";
 
 const Student = ({ students, setStudents }) => {
   const [showModal, setShowModal] = useState(false);
+  console.log("from students: ", setStudents);
   // student.branch
   // Tayla's added code with html
 
