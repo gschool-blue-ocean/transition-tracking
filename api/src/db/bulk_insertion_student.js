@@ -112,6 +112,6 @@ for (let i = 0; i < 1000; i++) {
 
 writablestream.close();
 
-// await sql`COPY students (first_name, last_name, email, phone, branch, ets, status, linkedin, github, comment, cohort_id) FROM '/Users/shuluo/Code/mcsp/transition-tracking/api/src/db/student_data.csv' WITH (FORMAT CSV, DELIMITER ';', ESCAPE '\')`;
+// await sql`COPY students (first_name, last_name, email, phone, branch, ets, status, linkedin, github, comment, cohort_id) FROM '/Users/shuluo/Code/mcsp/transition-tracking/api/src/db/student_data.csv' WITH (FORMAT CSV, DELIMITER ';', ESCAPE '\\')`;
 
 sql.end();

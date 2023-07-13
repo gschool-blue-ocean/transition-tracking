@@ -140,3 +140,4 @@ INSERT INTO students(
   '{"Clearing Appointment":"2023-12-08 11:00 3H", "Clearing Appointment":"2024-05-28 17:00 2H"}',
   'mcsp22'
 );
+
