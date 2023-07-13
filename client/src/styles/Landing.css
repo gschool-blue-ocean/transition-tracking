@@ -75,7 +75,7 @@ body {
 .get-started {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #0070c9; /* Blue color */
+  color: #e7e7e7; /* Blue color */
   margin-bottom: 1rem;
 }
 
@@ -85,7 +85,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
-  background-color: #dc7451; /* Orange color */
+  background-color: #787878; /* Orange color */
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;

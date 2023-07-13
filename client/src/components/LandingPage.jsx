@@ -34,7 +34,7 @@ function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
           currentWordIndex = (currentWordIndex + 1) % words.length;
           setTimeout(type, 500);
         } else {
-          const typingSpeed = isDeleting ? 50 : 150;
+          const typingSpeed = isDeleting ? 50 : 90;
           setTimeout(type, typingSpeed);
         }
       };
