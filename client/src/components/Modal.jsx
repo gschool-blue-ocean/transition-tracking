@@ -7,6 +7,7 @@ function Modal({ onClose, studentId, setStudents }) {
     console.log(e.target.value);
     setComment(e.target.value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
