@@ -114,3 +114,30 @@ INSERT INTO cohort(
   '2023-08-14',
   '2023-12-08'
 );
+
+INSERT INTO students(
+  first_name,
+  last_name,
+  email,
+  phone,
+  branch,
+  ets,
+  status,
+  linkedin,
+  github,
+  comment,
+  cohort_id
+) VALUES(
+  'Mireya',
+  'Russel',
+  'Mireya_Russel69@blueocean.com',
+  '349-792-4339',
+  'Navy',
+  '2024-08-11',
+  'more than 6 months prior ETS',
+  'https://www.linkedin.com/in/MireyaRussel/',
+  'https://github.com/Cory_Walker13',
+  '{"Clearing Appointment":"2023-12-08 11:00 3H", "Clearing Appointment":"2024-05-28 17:00 2H"}',
+  'mcsp22'
+);
+

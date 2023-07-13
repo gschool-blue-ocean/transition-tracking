@@ -31,7 +31,15 @@ const Student = ({ students, setStudents }) => {
           <p>Status: {student.status}</p>
           <p>LinkedIn: {student.linkedin}</p>
           <p>GitHub: {student.github}</p>
-          <p>Comment: {student.comment} </p>
+          <div className="comment">
+            {Object.entries(student.comment)
+              ? Object.entries(student.comment).map(([key, value]) => (
+                  <p key={key}>
+                    {key} : {value}
+                  </p>
+                ))
+              : {}}
+          </div>
           <button onClick={openModal}>|Make a Comment|</button>
           {showModal && (
             <Modal
