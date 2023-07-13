@@ -31,10 +31,8 @@ const Student = ({ students, setStudents }) => {
           <p>Status: {student.status}</p>
           <p>LinkedIn: {student.linkedin}</p>
           <p>GitHub: {student.github}</p>
-          <p>
-            Comment: {student.comment}{" "}
-            <button onClick={openModal}>|Make a Comment|</button>
-          </p>
+          <p>Comment: {student.comment} </p>
+          <button onClick={openModal}>|Make a Comment|</button>
           {showModal && (
             <Modal
               onClose={closeModal}
