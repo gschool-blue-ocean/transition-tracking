@@ -1,6 +1,7 @@
 import React from "react";
 import Students from "./Students";
 import Dropdown from "./Dropdown";
+import CreateCohort from "./CreateCohort";
 
 export default function Mcsp({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 	return (
