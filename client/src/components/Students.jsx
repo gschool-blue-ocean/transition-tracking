@@ -19,11 +19,13 @@ const Student = ({ students }) => {
           <p>LinkedIn: {student.linkedin}</p>
           <p>GitHub: {student.github}</p>
           <div className="comment">
-            {student.comment
-              ? student.comment
-                  .split("@#$@#$")
-                  .map((comment, index) => <p key={index}>{comment}</p>)
-              : ""}
+            {Object.entries(student.comment)
+              ? Object.entries(student.comment).map(([key, value]) => (
+                  <p key={key}>
+                    {key} : {value}
+                  </p>
+                ))
+              : {}}
           </div>
           <br />
         </div>

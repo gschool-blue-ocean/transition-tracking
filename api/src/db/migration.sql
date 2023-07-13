@@ -20,7 +20,7 @@ CREATE TABLE students (
   ets DATE,
   linkedin VARCHAR(80),
   github VARCHAR(80),
-  comment TEXT,
+  comment JSON,
   cohort_id VARCHAR(80),
   FOREIGN KEY (cohort_id) REFERENCES cohort(cohort_id)
   );
