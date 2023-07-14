@@ -67,7 +67,7 @@ function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
       <div className="mcsp">
         <h1 className="get-started">Get Started by selecting a cohort</h1>
 
-        <ul class="menu">
+        <ul className="menu">
           <li>
             <a href="#">MCSP...</a>
     
