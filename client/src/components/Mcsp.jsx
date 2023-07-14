@@ -5,8 +5,10 @@ import '../styles/Mcsp.css'
 
 
 
+
 export default function Mcsp({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
   return (
+
 
     <div className="app">
       <Navbar cohort={cohort}

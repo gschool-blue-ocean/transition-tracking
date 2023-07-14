@@ -5,6 +5,7 @@ import '../styles/Students.css'
 
 const Student = ({ students, setStudents }) => {
   const [showModal, setShowModal] = useState(false);
+  console.log("from students: ", setStudents);
   // student.branch
   // Tayla's added code with html
 
@@ -70,6 +71,7 @@ const Student = ({ students, setStudents }) => {
             <Modal
               onClose={closeModal}
               studentId={student.id}
+              students={students}
               setStudents={setStudents}
             />
           )} */}
