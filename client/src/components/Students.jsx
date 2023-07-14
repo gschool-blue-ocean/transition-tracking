@@ -47,7 +47,7 @@ const Student = ({ students, setStudents }) => {
           <p>{student.branch}</p>
           <p>ETS: {student.ets.split("T")[0]}</p>
           <br/>
-          <p className="contact">Contact:</p>
+          <p className="">Contact:</p>
           <p>{student.email}</p>
           <p>{student.phone}</p>
 
