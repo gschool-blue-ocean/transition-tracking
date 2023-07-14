@@ -2,4 +2,3 @@
 /client/dist
 .env
 /Notes
-api/src/db/render_bulk.js
