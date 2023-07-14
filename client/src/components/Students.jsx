@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "./Modal";
+import '../styles/Students.css'
 
 const Student = ({ students, setStudents }) => {
   const [showModal, setShowModal] = useState(false);
@@ -18,21 +19,45 @@ const Student = ({ students, setStudents }) => {
     setShowModal(false);
   };
 
+  
+    const renderStatus = (status) => {
+      
+      if (status === "within 6 months prior ETS") {
+        return "In Process";
+      } else if (status === "Seperated") {
+        return "Separated";
+      } else if (status === "more than 6 months prior ETS") {
+        return "Skillbridge";
+      } else {
+        return "";
+      }
+    };
+
+
   return (
     <div className="students">
       {students.map((student) => (
         <div key={student.id} className="student">
-          <h2>
+            <div className="student-head">
+            <h2 className="name">
             {student.first_name} {student.last_name}
-          </h2>
-          <p>Email: {student.email}</p>
-          <p>Phone: {student.phone}</p>
-          <p>Branch: {student.branch}</p>
+            </h2>
+            <p className="status">{renderStatus(student.status)}</p>
+          </div>
+          <br/>
+          <p>{student.branch}</p>
           <p>ETS: {student.ets.split("T")[0]}</p>
-          <p>Status: {student.status}</p>
+          <br/>
+          <p className="contact">Contact:</p>
+          <p>{student.email}</p>
+          <p>{student.phone}</p>
+
+
+          {/* 
           <p>LinkedIn: {student.linkedin}</p>
-          <p>GitHub: {student.github}</p>
-          <div className="comment">
+          <p>GitHub: {student.github}</p> */}
+          
+          {/* <div className="comment">
             {Object.entries(student.comment)
               ? Object.entries(student.comment).map(([key, value]) => (
                   <p key={key}>
@@ -40,8 +65,8 @@ const Student = ({ students, setStudents }) => {
                   </p>
                 ))
               : {}}
-          </div>
-          <button onClick={openModal}>|Make a Comment|</button>
+          </div> */}
+          {/* <button onClick={openModal}>|Make a Comment|</button>
           {showModal && (
             <Modal
               onClose={closeModal}
@@ -49,7 +74,7 @@ const Student = ({ students, setStudents }) => {
               students={students}
               setStudents={setStudents}
             />
-          )}
+          )} */}
           <br />
         </div>
       ))}
