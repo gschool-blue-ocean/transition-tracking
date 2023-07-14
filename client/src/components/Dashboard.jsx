@@ -40,32 +40,44 @@ const Dashboard = ({ students }) => {
       <div className="status">Status</div>
       <div className="bars">
         <div className="status-bar">
-          <div className="percent">{(red / numberOfStudents) * 100}%</div>
+          <div className="percent">
+            {Math.floor((red / numberOfStudents) * 100)}%
+          </div>
           <div className="empty-bar">
             <div
               className="color-bar"
               id="red-color-bar"
-              style={{ height: `${(red / numberOfStudents) * 100}%` }}
+              style={{
+                height: `${Math.floor((red / numberOfStudents) * 100)}%`,
+              }}
             ></div>
           </div>
         </div>
         <div className="status-bar">
-          <div className="percent">{(yellow / numberOfStudents) * 100}%</div>
+          <div className="percent">
+            {Math.floor((yellow / numberOfStudents) * 100)}%
+          </div>
           <div className="empty-bar">
             <div
               className="color-bar"
               id="yellow-color-bar"
-              style={{ height: `${(yellow / numberOfStudents) * 100}%` }}
+              style={{
+                height: `${Math.floor((yellow / numberOfStudents) * 100)}%`,
+              }}
             ></div>
           </div>
         </div>
         <div className="status-bar">
-          <div className="percent">{(green / numberOfStudents) * 100}%</div>
+          <div className="percent">
+            {Math.floor((green / numberOfStudents) * 100)}%
+          </div>
           <div className="empty-bar">
             <div
               className="color-bar"
               id="green-color-bar"
-              style={{ height: `${(green / numberOfStudents) * 100}%` }}
+              style={{
+                height: `${Math.floor((green / numberOfStudents) * 100)}%`,
+              }}
             ></div>
           </div>
         </div>
