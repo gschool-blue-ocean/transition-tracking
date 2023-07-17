@@ -16,11 +16,11 @@ CREATE TABLE students (
   email VARCHAR(80),
   phone VARCHAR(80),
   branch VARCHAR(80),
-  status VARCHAR(80),
   ets DATE,
+  status VARCHAR(80),
   linkedin VARCHAR(80),
   github VARCHAR(80),
-  comment TEXT,
+  comment JSON,
   cohort_id VARCHAR(80),
   FOREIGN KEY (cohort_id) REFERENCES cohort(cohort_id)
   );

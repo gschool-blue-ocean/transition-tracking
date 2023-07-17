@@ -3,7 +3,7 @@ import axios from "axios";
 
 function Modal({ onClose, studentId, setStudents }) {
 	const [comment, setComment] = useState("");
-
+	console.log("from modal: ", setStudents);
 	const handleComment = (e) => {
 		console.log(e.target.value);
 		setComment(e.target.value);
@@ -11,22 +11,24 @@ function Modal({ onClose, studentId, setStudents }) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
 		axios
 			.patch(`/api/students/${studentId}`, {
 				comment: comment,
 			})
 			.then(() => {
+				console.log(setStudents);
 				setStudents((students) => {
 					const studentToUpdate = students.find((student) => student.id === studentId);
-					studentToUpdate.comment = comment;
+					const commentkey = comment.split(":")[0];
+					const commentValue = comment.split(":")[1];
+					const commentObject = studentToUpdate.comment;
+					commentObject[`${commentkey}`] = `${commentValue}`;
+					studentToUpdate.comment = commentObject;
 					return [...students];
 				});
 			});
-
 		onClose();
 	};
-
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
@@ -41,5 +43,4 @@ function Modal({ onClose, studentId, setStudents }) {
 		</>
 	);
 }
-
 export default Modal;

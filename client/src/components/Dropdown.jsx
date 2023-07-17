@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function Dropdown({ cohort, setStudents, isDDOpen, setIsDDOpen}) {
-
-  
+function Dropdown({ cohort, setStudents, isDDOpen, setIsDDOpen }) {
   const handleClick = (id) => {
     fetch(`api/cohort/${id}`)
       .then((res) => res.json())
@@ -11,15 +9,14 @@ function Dropdown({ cohort, setStudents, isDDOpen, setIsDDOpen}) {
         setStudents(students);
       });
 
-      setIsDDOpen(false);
+    setIsDDOpen(false);
   };
-
 
   return (
     <div className="cohort">
       {cohort.map((cohorts) => (
-        <Link to="/mcsp">
-          <div key={cohorts.cohort_id} className="cohorts">
+        <Link key={cohorts.cohort_id} to="/mcsp">
+          <div className="cohorts">
             <button
               className="cohortBtn"
               onClick={() => handleClick(cohorts.cohort_id)}

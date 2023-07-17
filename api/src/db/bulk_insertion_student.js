@@ -5,7 +5,7 @@ import fs from "fs";
 const sql = postgres("postgress://localhost:5432/blueocean");
 const writablestream = fs.createWriteStream("./api/src/db/student_data.csv");
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 100; i++) {
   const first_name = faker.person.firstName();
   const last_name = faker.person.lastName();
   const email = faker.internet.email({
@@ -38,11 +38,11 @@ for (let i = 0; i < 1000; i++) {
       : Math.floor((etsDate.getTime() - Date.now()) / (1000 * 60 * 60 * 24)) > 0
       ? "Clearing"
       : "Seperated";
-
   const linkedin = `https://www.linkedin.com/in/${first_name}${last_name}/`;
   const github = `https://github.com/` + faker.internet.displayName();
+
   // handle comment section
-  var comment = "";
+  var commentCopy = {};
   const commentControl = faker.number.int(100);
   if (commentControl >= 30 && commentControl < 80) {
     const commentName = faker.helpers.arrayElement([
@@ -50,6 +50,7 @@ for (let i = 0; i < 1000; i++) {
       "Clearing Appointment",
       "Office Hour Requested",
       "Family Emergency",
+      "No Reason Specified",
     ]);
     const commentDetail1 = faker.date
       .future({ years: 1 })
@@ -62,7 +63,9 @@ for (let i = 0; i < 1000; i++) {
     } else {
       commentDetail3 += "H";
     }
-    comment += `${commentName} ${commentDetail1} ${commentDetail2} ${commentDetail3}@#$@#$`;
+    commentCopy[
+      `"${commentName}"`
+    ] = `"${commentDetail1} ${commentDetail2} ${commentDetail3}"`;
   } else if (commentControl >= 80) {
     for (let i = 0; i < 3; i++) {
       const commentName = faker.helpers.arrayElement([
@@ -70,6 +73,7 @@ for (let i = 0; i < 1000; i++) {
         "Clearing Appointment",
         "Office Hour Requested",
         "Family Emergency",
+        "No Reason Specified",
       ]);
       const commentDetail1 = faker.date
         .future({ years: 1 })
@@ -82,30 +86,26 @@ for (let i = 0; i < 1000; i++) {
       } else {
         commentDetail3 += "H";
       }
-      comment += `${commentName} ${commentDetail1} ${commentDetail2} ${commentDetail3}@#$@#$`;
+      commentCopy[
+        `"${commentName}"`
+      ] = `"${commentDetail1} ${commentDetail2} ${commentDetail3}"`;
     }
   }
-
+  const comment = JSON.stringify(commentCopy);
   const cohort_id = faker.helpers.arrayElement([
-    "mcsp16",
-    "mcsp17",
-    "mcsp18",
-    "mcsp19",
-    "mcsp20",
     "mcsp21",
     "mcsp22",
     "mcsp23",
     "mcsp24",
-    "mcsp25",
   ]);
 
   writablestream.write(
-    `${first_name},${last_name},${email},${phone},${branch},${ets},${status},${linkedin},${github},${comment},${cohort_id}\n`
+    `${first_name};${last_name};${email};${phone};${branch};${ets};${status};${linkedin};${github};${comment};${cohort_id}\n`
   );
 }
 
 writablestream.close();
 
-// await sql`COPY students (first_name, last_name, email, phone, branch, ets, status, linkedin, github, comment, cohort_id) FROM 'api/src/db/student_data.csv' WITH DELIMITER ',' CSV`;
+// await sql`COPY students (first_name, last_name, email, phone, branch, ets, status, linkedin, github, comment, cohort_id) FROM '/Users/shuluo/Code/mcsp/transition-tracking/api/src/db/student_data.csv' WITH (FORMAT CSV, DELIMITER ';', ESCAPE '\\')`;
 
 sql.end();

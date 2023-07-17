@@ -1,7 +1,8 @@
 import React from "react";
 import Students from "./Students";
-import Dropdown from "./Dropdown";
-import CreateCohort from "./CreateCohort";
+import Navbar from "./Navbar";
+import Dashboard from "./Dashboard";
+import "../styles/Mcsp.css";
 
 export default function Mcsp({
   cohort,
@@ -11,32 +12,16 @@ export default function Mcsp({
   setIsDDOpen,
 }) {
   return (
-    <div>
-      <div className="btn-group">
-        <button onClick={() => setIsDDOpen((prev) => !prev)}>MCSP..</button>
-
-        {isDDOpen && (
-          <ul className="dropdown-menu">
-            <Dropdown
-              cohort={cohort}
-              students={students}
-              setStudents={setStudents}
-              isDDOpen={isDDOpen}
-              setIsDDOpen={setIsDDOpen}
-            />
-
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" id="createCohort" href="/mcsp">
-                <CreateCohort />
-              </a>
-            </li>
-          </ul>
-        )}
-        <Students students={students} />
-      </div>
+    <div className="app">
+      <Navbar
+        cohort={cohort}
+        students={students}
+        setStudents={setStudents}
+        isDDOpen={isDDOpen}
+        setIsDDOpen={setIsDDOpen}
+      />
+      <Dashboard students={students} />
+      <Students students={students} />
     </div>
   );
 }
