@@ -41,27 +41,35 @@ const Student = ({ students, setStudents }) => {
     }
   };
 
+
   return (
     <div className="students">
       {students.map((student) => (
         <div key={student.id} className="student">
+
           <div className="student-head">
-            <h2 className="name">
-              {student.first_name} {student.last_name}
-            </h2>
-            <p className="status">
+            <div className="status">
+            <p>
               {renderStatus(student.status).text}
-              <div
+            </p>
+            <div
                 className="color-circle"
                 style={{ backgroundColor: renderStatus(student.status).color }}
               ></div>
-            </p>
+              </div>
+            <h2 className="name">
+              {student.first_name} {student.last_name}
+
+                          </h2>
+
+
+
           </div>
           <br />
           <p>{student.branch}</p>
           <p>ETS: {student.ets.split("T")[0]}</p>
-          <br />
-          <p className="contact">Contact:</p>
+          <br/>
+          <p className="">Contact:</p>
           <p>{student.email}</p>
           <p>{student.phone}</p>
 

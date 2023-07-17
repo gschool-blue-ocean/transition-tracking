@@ -1,24 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import '../styles/Navbar.css'
 import Dropdown from './Dropdown'
 
 function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
+
+  const [activeItem, setActiveItem] = useState('dashboard'); // Initial active item is set to 'dashboard'
+
+  const handleItemClick = (item) => {
+    setActiveItem(item);
+  };
+
   return (
-    <div>
-      <div className="header">
+    <div className='header'>
+      <div className="nav">
         <div className='logo'></div>
         <div className="nav-bar">
-            <div className="nav-items">
-             <div className="nav-item1">
-                Dashboard
-             </div>   
-             <div className="nav-item2">
-                News 
-             </div>   
-             <div className="nav-item3">
-                Help
-             </div>   
+        <div className="nav-items">
+            <div
+              className={`nav-item1 ${activeItem === 'dashboard' ? 'active' : ''}`}
+              onClick={() => handleItemClick('dashboard')}
+            >
+              Dashboard
             </div>
+            <div
+              className={`nav-item2 ${activeItem === 'news' ? 'active' : ''}`}
+              onClick={() => handleItemClick('news')}
+            >
+              News
+            </div>
+            <div
+              className={`nav-item3 ${activeItem === 'help' ? 'active' : ''}`}
+              onClick={() => handleItemClick('help')}
+            >
+              Help
+            </div>
+          </div>
         </div>
         <div className="btn-group">
           <button

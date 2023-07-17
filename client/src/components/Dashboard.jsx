@@ -37,7 +37,8 @@ const Dashboard = ({ students }) => {
 
   return (
     <div className="dashboard">
-      <div className="status">Status</div>
+    <div className="status-board">
+      <div className="status-name">STATUS</div>
       <div className="bars">
         <div className="status-bar">
           <div className="percent">
@@ -82,6 +83,7 @@ const Dashboard = ({ students }) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
