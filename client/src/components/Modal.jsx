@@ -3,7 +3,6 @@ import axios from "axios";
 
 function Modal({ onClose, studentId, setStudents }) {
   const [comment, setComment] = useState("");
-  console.log("from modal: ", setStudents);
   const handleComment = (e) => {
     console.log(e.target.value);
     setComment(e.target.value);
@@ -16,7 +15,6 @@ function Modal({ onClose, studentId, setStudents }) {
         comment: comment,
       })
       .then(() => {
-        console.log(setStudents);
         setStudents((students) => {
           const studentToUpdate = students.find(
             (student) => student.id === studentId

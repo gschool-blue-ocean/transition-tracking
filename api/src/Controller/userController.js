@@ -6,6 +6,7 @@ import {
   addCohort,
   deleteCohort,
   postComment,
+  addStudent,
 } from "./queries.js";
 
 export const getAllCohorts = async (req, res) => {
@@ -38,12 +39,17 @@ export const getSpeCohort = async (req, res) => {
 
 export const addComment = async (req, res) => {
   try {
+    const id = req.params.id;
     const { comment } = req.body;
     const commentkey = comment.split(":")[0];
     const commentValue = comment.split(":")[1];
-    const commentObject = {};
+    const comments = await db.query(
+      "SELECT comment FROM students WHERE id = $1",
+      [id]
+    );
+    const commentObject = comments.rows[0].comment;
     commentObject[`${commentkey}`] = `${commentValue}`;
-    const { id } = req.params;
+
     if (!comment) {
       res.sendStatus(422);
       return;
@@ -58,9 +64,13 @@ export const addComment = async (req, res) => {
 
 export const addingCohort = async (req, res) => {
   try {
-    const { description } = req.body;
-
-    const result = await db.query(addCohort, [description]);
+    const { cohort_id, instructor, start_date, end_date } = req.body;
+    const result = await db.query(addCohort, [
+      cohort_id,
+      instructor,
+      start_date,
+      end_date,
+    ]);
     res.send(result.rows[0]);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -69,10 +79,44 @@ export const addingCohort = async (req, res) => {
 
 export const delCohort = async (req, res) => {
   try {
-    const id = Number(req.params.id);
-
-    await db.query(deleteCohort, [id]).catch(next);
+    const id = req.params.id;
+    await db.query("DELETE FROM students WHERE cohort_id = $1", [id]).catch();
+    await db.query(deleteCohort, [id]).catch();
     res.sendStatus(204);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const addingStudent = async (req, res) => {
+  try {
+    const {
+      first_name,
+      last_name,
+      email,
+      phone,
+      branch,
+      status,
+      ets,
+      linkedin,
+      github,
+      comment,
+      cohort_id,
+    } = req.body;
+    const result = await db.query(addStudent, [
+      first_name,
+      last_name,
+      email,
+      phone,
+      branch,
+      status,
+      ets,
+      linkedin,
+      github,
+      comment,
+      cohort_id,
+    ]);
+    res.send(result.rows[0]);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

@@ -12,7 +12,6 @@ const App = () => {
   const [isDDOpen, setIsDDOpen] = useState(false);
 
   useEffect(() => {
-    console.log("from app: ", setStudents);
     fetch("/api/cohort")
       .then((res) => res.json())
       .then((cohort) => {

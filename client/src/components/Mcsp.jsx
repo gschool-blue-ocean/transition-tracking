@@ -11,7 +11,6 @@ export default function Mcsp({
   isDDOpen,
   setIsDDOpen,
 }) {
-  console.log("from mcsp: ", setStudents);
   return (
     <div>
       <Dashboard students={students} />
