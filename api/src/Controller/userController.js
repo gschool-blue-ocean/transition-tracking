@@ -5,6 +5,7 @@ import {
   speCohort,
   addCohort,
   deleteCohort,
+  postComment,
 } from "./queries.js";
 
 export const getAllCohorts = async (req, res) => {
@@ -30,6 +31,26 @@ export const getSpeCohort = async (req, res) => {
     const id = req.params.id;
     const result = await db.query(speCohort, [id]);
     res.send(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const addComment = async (req, res) => {
+  try {
+    const { comment } = req.body;
+    const commentkey = comment.split(":")[0];
+    const commentValue = comment.split(":")[1];
+    const commentObject = {};
+    commentObject[`${commentkey}`] = `${commentValue}`;
+    const { id } = req.params;
+    if (!comment) {
+      res.sendStatus(422);
+      return;
+    }
+
+    const results = await db.query(postComment, [commentObject, id]);
+    res.status(201).send(results.rows[0]);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

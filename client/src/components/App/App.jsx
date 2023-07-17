@@ -9,15 +9,15 @@ const App = () => {
   const [cohort, setCohort] = useState([]);
   const [students, setStudents] = useState([]);
   const [isDDOpen, setIsDDOpen] = useState(false);
-  
+
   useEffect(() => {
+    console.log("from app: ", setStudents);
     fetch("/api/cohort")
       .then((res) => res.json())
       .then((cohort) => {
         setCohort(cohort);
       });
   }, []);
-
 
   return (
     <div className="App">
@@ -37,19 +37,19 @@ const App = () => {
               />
             }
           />
-          <Route path="/mcsp"
-                 exact
-                 element={
-                    <Mcsp
-                      cohort={cohort}
-                      students={students}
-                      setStudents={setStudents} 
-                      isDDOpen={isDDOpen}
-                      setIsDDOpen={setIsDDOpen}
-                    />
-              }
-           />
- 
+          <Route
+            path="/mcsp"
+            exact
+            element={
+              <Mcsp
+                cohort={cohort}
+                students={students}
+                setStudents={setStudents}
+                isDDOpen={isDDOpen}
+                setIsDDOpen={setIsDDOpen}
+              />
+            }
+          />
         </Routes>
         <Footer />
       </Router>
@@ -58,4 +58,3 @@ const App = () => {
 };
 
 export default App;
-

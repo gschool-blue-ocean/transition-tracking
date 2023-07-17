@@ -37,7 +37,6 @@ const Dashboard = ({ students }) => {
 
   return (
     <div className="dashboard">
-
     <div className="status-board">
       <div className="status-name">STATUS</div>
       <div className="bars">
