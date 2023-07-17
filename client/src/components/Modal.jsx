@@ -13,24 +13,29 @@ function Modal({ onClose, studentId, setStudents }) {
     setDetail(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .patch(`/api/students/${studentId}`, {
-        comment: `${newComment}:${detail}`,
-      })
-      .then(() => {
-        setStudents((students) => {
-          const studentToUpdate = students.find(
-            (student) => student.id === studentId
-          );
-          const commentObject = studentToUpdate.comment;
-          commentObject[`${newComment}`] = `${detail}`;
-          console.log("frontend: ", commentObject);
-          studentToUpdate.comment = commentObject;
-          return [...students];
+    try {
+      const result = await axios
+        .patch(`/api/students/${studentId}`, {
+          comment: `${newComment}:${detail}`,
+        })
+        .then(() => {
+          setStudents((students) => {
+            const studentToUpdate = students.find(
+              (student) => student.id === studentId
+            );
+            const commentObject = studentToUpdate.comment;
+            commentObject[`${newComment}`] = `${detail}`;
+            console.log("frontend: ", commentObject);
+            studentToUpdate.comment = commentObject;
+            return [...students];
+          });
         });
-      });
+    } catch (error) {
+      console.error(error);
+    }
+
     onClose();
   };
   return (
