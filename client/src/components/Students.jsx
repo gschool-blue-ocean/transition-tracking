@@ -19,29 +19,51 @@ const Student = ({ students, setStudents }) => {
   };
 
   
-    const renderStatus = (status) => {
-      
-      if (status === "within 6 months prior ETS") {
-        return "In Process";
-      } else if (status === "Seperated") {
-        return "Separated";
-      } else if (status === "more than 6 months prior ETS") {
-        return "Skillbridge";
-      } else {
-        return "";
-      }
-    };
+  const renderStatus = (status) => {
+    if (status === "within 6 months prior ETS") {
+      return {
+        text: "In Process",
+        color: "yellow",
+      };
+    } else if (status === "Seperated") {
+      return {
+        text: "Seperated",
+        color: "green",
+      };
+    } else if (status === "more than 6 months prior ETS") {
+      return {
+        text: "Skillbridge",
+        color: "red",
+      };
+    } else {
+      return {
+        text: "",
+        color: "",
+      };
+    }
+  };
 
 
   return (
     <div className="students">
       {students.map((student) => (
         <div key={student.id} className="student">
-            <div className="student-head">
+
+          <div className="student-head">
+            <div className="status">
+            <p>
+              {renderStatus(student.status).text}
+            </p>
+            <div
+                className="color-circle"
+                style={{ backgroundColor: renderStatus(student.status).color }}
+              ></div>
+              </div>
             <h2 className="name">
-            {student.first_name} {student.last_name}
-            </h2>
-            <p className="status">{renderStatus(student.status)}</p>
+              {student.first_name} {student.last_name}
+
+                          </h2>
+
           </div>
           <br/>
           <p>{student.branch}</p>

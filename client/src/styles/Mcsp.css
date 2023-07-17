@@ -9,4 +9,9 @@
     background-size: cover;
   }
 
+
+.dash {
+  display: flex;
+  padding: 20px;
+}
   

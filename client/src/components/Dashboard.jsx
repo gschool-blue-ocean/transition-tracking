@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "../styles/Dashboard.css";
 
 const Dashboard = ({ students }) => {
   const [red, setRed] = useState(0);
@@ -36,8 +37,10 @@ const Dashboard = ({ students }) => {
 
   return (
     <div className="dashboard">
-      <div className="status">
-        Status
+
+    <div className="status-board">
+      <div className="status-name">STATUS</div>
+      <div className="bars">
         <div className="status-bar">
           <div className="percent">{(red / numberOfStudents) * 100}%</div>
           <div className="empty-bar">
@@ -69,6 +72,7 @@ const Dashboard = ({ students }) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

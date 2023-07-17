@@ -2,6 +2,7 @@ import React from "react";
 import Students from "./Students";
 import Navbar from "./Navbar";
 import '../styles/Mcsp.css'
+import Dashboard from "./Dashboard";
 
 
 
@@ -9,13 +10,18 @@ export default function Mcsp({ cohort, students, setStudents, isDDOpen, setIsDDO
   return (
 
     <div className="app">
-      <Navbar cohort={cohort}
-               students={students}
-               setStudents={setStudents}
-               isDDOpen={isDDOpen}
-               setIsDDOpen={setIsDDOpen}/>
-        <Students students={students} />
-        </div>
 
+      <Navbar
+        cohort={cohort}
+        students={students}
+        setStudents={setStudents}
+        isDDOpen={isDDOpen}
+        setIsDDOpen={setIsDDOpen}
+      />
+      <div className="dash">
+      <Dashboard students={students} />
+      <Students students={students} />
+      </div>
+    </div>
   );
 }

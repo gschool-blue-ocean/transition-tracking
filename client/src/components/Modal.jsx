@@ -30,7 +30,6 @@ function Modal({ onClose, studentId, setStudents }) {
       <form onSubmit={handleSubmit}>
         <input
           className="text-black"
-          placeholder="Enter a comment..."
           placeholder="Appointment: (date)"
           type="text"
           onChange={handleComment}
