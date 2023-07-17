@@ -14,7 +14,6 @@ function Modal({ onClose, studentId, setStudents }) {
   };
 
   const handleSubmit = (e) => {
-    console.log(newComment, detail);
     e.preventDefault();
     axios
       .patch(`/api/students/${studentId}`, {
@@ -25,11 +24,9 @@ function Modal({ onClose, studentId, setStudents }) {
           const studentToUpdate = students.find(
             (student) => student.id === studentId
           );
-          // const commentkey = comment.split(":")[0];
-          // const commentValue = comment.split(":")[1];
           const commentObject = studentToUpdate.comment;
-          console.log(commentObject);
           commentObject[`${newComment}`] = `${detail}`;
+          console.log("frontend: ", commentObject);
           studentToUpdate.comment = commentObject;
           return [...students];
         });
