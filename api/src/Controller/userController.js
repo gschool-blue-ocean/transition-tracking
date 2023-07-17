@@ -49,6 +49,7 @@ export const addComment = async (req, res) => {
     );
     const commentObject = comments.rows[0].comment;
     commentObject[`${commentkey}`] = `${commentValue}`;
+    console.log(commentObject);
 
     if (!comment) {
       res.sendStatus(422);
