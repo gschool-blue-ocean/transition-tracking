@@ -5,11 +5,7 @@ import "../styles/Students.css";
 
 const Student = ({ students, setStudents }) => {
   const [showModal, setShowModal] = useState(false);
-
   const [selectedStudent, setSelectedStudent] = useState(null);
-  // console.log("from students: ", setStudents);
-  // student.branch
-  // Tayla's added code with html
 
   const openModal = (studentId) => {
     console.log("Modal Opened");
@@ -21,18 +17,6 @@ const Student = ({ students, setStudents }) => {
     console.log("Modal closed");
     setShowModal(false);
     setSelectedStudent(null);
-  };
-
-  const renderStatus = (status) => {
-    if (status === "within 6 months prior ETS") {
-      return "In Process";
-    } else if (status === "Seperated") {
-      return "Separated";
-    } else if (status === "more than 6 months prior ETS") {
-      return "Skillbridge";
-    } else {
-      return "";
-    }
   };
 
   const renderStatus = (status) => {
@@ -59,69 +43,60 @@ const Student = ({ students, setStudents }) => {
     }
   };
 
-
   return (
     <div className="students">
       {students.map((student) => (
         <div key={student.id} className="student">
-
-
           <div className="student-head">
             <div className="status">
-            <p>
-              {renderStatus(student.status).text}
-            </p>
-            <div
+              <p>{renderStatus(student.status).text}</p>
+              <div
                 className="color-circle"
                 style={{ backgroundColor: renderStatus(student.status).color }}
               ></div>
-              </div>
+            </div>
             <h2 className="name">
               {student.first_name} {student.last_name}
-
-                          </h2>
-
-
+            </h2>
           </div>
           <br />
           <p>{student.branch}</p>
           <p>ETS: {student.ets.split("T")[0]}</p>
 
           <div className="comment">
+            <br />
+            <p>Contact:</p>
+            <p>{student.email}</p>
+            <p>{student.phone}</p>
 
-          <br/>
-          <p className="">Contact:</p>
-          <p>{student.email}</p>
-          <p>{student.phone}</p>
+            {/* Additional student details (LinkedIn, GitHub) */}
+            {/* <p>LinkedIn: {student.linkedin}</p>
+            <p>GitHub: {student.github}</p> */}
 
-          {/*
-          <p>LinkedIn: {student.linkedin}</p>
-          <p>GitHub: {student.github}</p> */}
+            <div className="comment">
+              {Object.entries(student.comment)
+                ? Object.entries(student.comment).map(([key, value]) => (
+                    <p key={key}>
+                      {key} : {value}
+                    </p>
+                  ))
+                : {}}
+            </div>
 
-          <div className="comment">
+            <button onClick={() => openModal(student.id)}>
+              |Make a Comment|
+            </button>
 
-            {Object.entries(student.comment)
-              ? Object.entries(student.comment).map(([key, value]) => (
-                  <p key={key}>
-                    {key} : {value}
-                  </p>
-                ))
-              : {}}
+            {selectedStudent === student.id && (
+              <Modal
+                onClose={closeModal}
+                studentId={student.id}
+                students={students}
+                setStudents={setStudents}
+              />
+            )}
+            <br />
           </div>
-
-          <button onClick={() => openModal(student.id)}>
-            |Make a Comment|
-          </button>
-
-          {selectedStudent === student.id && (
-            <Modal
-              onClose={closeModal}
-              studentId={student.id}
-              students={students}
-              setStudents={setStudents}
-            />
-          )}
-          <br />
         </div>
       ))}
     </div>
