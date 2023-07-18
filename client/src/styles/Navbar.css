@@ -94,3 +94,51 @@
       .nav-item3:hover {
         color: #c3c2c2;
       }
+
+
+      
+    /* Add CSS for the dropdown menu */
+.btn-group {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-group button {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-divider {
+  border: 1px solid #ddd;
+  margin: 5px 0;
+}
