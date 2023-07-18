@@ -1,58 +1,63 @@
 .students {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px;
+  margin-left: 22%;
+  margin-top: 30px;
 }
 
 .student {
-	padding: 20px;
-	width: 20rem;
-	height: auto;
-	color: rgb(161, 161, 161);
-	border-radius: 36.5px;
-	background: rgba(23, 23, 23, 0.5);
-	font-family: sans-serif;
-	font-weight: 400;
-	font-size: medium;
+  padding: 20px;
+  width: 20rem;
+  height: auto;
+  color: rgb(161, 161, 161);
+  border-radius: 36.5px;
+  background: rgba(23, 23, 23, 0.5);
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: medium;
 }
 
 .student-head {
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-between;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .name {
-	display: flex;
-	justify-content: flex-end;
-	font-family: sans-serif;
-	font-weight: 600;
-	font-size: 20px;
-	color: white;
+  display: flex;
+  justify-content: flex-end;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
 }
 .contact {
-	font-weight: 400;
-	font-size: 18px;
-	color: white;
+  font-weight: 400;
+  font-size: 18px;
+  color: white;
 }
 
 .status {
-	background-color: rgba(184, 181, 181, 0.389);
-	color: white;
-	padding: 8px;
-	border-radius: 5px;
-	border-color: 1px solid black;
-	font-weight: 300;
-	font-size: 15px;
-	height: 40px;
-	margin-right: 5px;
+  background-color: rgba(184, 181, 181, 0.389);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  border-color: 1px solid black;
+  font-weight: 300;
+  font-size: 15px;
+  height: 40px;
+  margin-right: 5px;
 }
 
 .color-circle {
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	margin-right: 5px;
-	background-color: #fafcfa;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background-color: #fafcfa;
 }
