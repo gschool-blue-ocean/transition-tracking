@@ -98,28 +98,38 @@
 
       
     /* Add CSS for the dropdown menu */
+/* Updated Dropdown Styles */
+
+/* Updated CSS with Smaller Dropdown Width */
+
 .btn-group {
   position: relative;
   display: inline-block;
 }
 
-.btn-group button {
-  background-color: #3498db;
+.classes {
+  background-color: #00000073;
   color: #ffffff;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
+  border-radius: 8px;
+  width: 120px; /* Set the width of the dropdown button */
 }
 
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 5px);
   left: 0;
-  min-width: 200px;
-  background-color: #f9f9f9;
+  min-width: 150px; /* Set the minimum width for the dropdown menu */
+  max-height: 200px;
+  background-color: #00000083;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
   z-index: 1;
+  padding: 10px 0;
+  overflow-y: auto;
 }
 
 .dropdown-menu.show {
@@ -135,10 +145,11 @@
 }
 
 .dropdown-item:hover {
-  background-color: #f1f1f1;
+  background-color: #9b9b9b;
 }
 
 .dropdown-divider {
   border: 1px solid #ddd;
   margin: 5px 0;
 }
+

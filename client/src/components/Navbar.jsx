@@ -1,13 +1,32 @@
 import React, { useEffect, useState } from "react";
-import '../styles/Navbar.css'
-import Dropdown from './Dropdown'
+import { Modal, Button, Form } from "react-bootstrap/esm";
+import "bootstrap/dist/css/bootstrap.min.css";
+import '../styles/Navbar.css';
+import Dropdown from './Dropdown';
+
 
 function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
-
-  const [activeItem, setActiveItem] = useState('dashboard'); // Initial active item is set to 'dashboard'
+  const [activeItem, setActiveItem] = useState('dashboard');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleItemClick = (item) => {
     setActiveItem(item);
+  };
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleAddStudent = (studentData) => {
+    // Implement the logic to add the student to the 'students' state here.
+    // studentData contains the form input values (first name, last name, etc.).
+    // You can add the studentData to the 'students' state or send it to an API, depending on your app's requirements.
+    console.log("Adding student:", studentData);
+    handleModalClose();
   };
 
   return (
@@ -15,7 +34,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
       <div className="nav">
         <div className='logo'></div>
         <div className="nav-bar">
-        <div className="nav-items">
+          <div className="nav-items">
             <div
               className={`nav-item1 ${activeItem === 'dashboard' ? 'active' : ''}`}
               onClick={() => handleItemClick('dashboard')}
@@ -37,35 +56,93 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
           </div>
         </div>
         <div className="btn-group">
-  <button onClick={() => setIsDDOpen((prev) => !prev)}>MCSP..</button>
+          <button className="classes" onClick={() => setIsDDOpen((prev) => !prev)}>MCSP..</button>
+          {isDDOpen && (
+            <ul className="dropdown-menu show">
+              <Dropdown
+                cohort={cohort}
+                students={students}
+                setStudents={setStudents}
+                isDDOpen={isDDOpen}
+                setIsDDOpen={setIsDDOpen}
+              />
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
+              <li>
+                <a className="dropdown-item" id="createCohort" href="#">
+                  Create a New Cohort
+                </a>
+              </li>
+            </ul>
+          )}
+          <button onClick={handleModalOpen}>Add Student</button>
+        </div>
+      </div>
 
-  {isDDOpen && (
-    <ul className="dropdown-menu show">
-      <Dropdown
-        cohort={cohort}
-        students={students}
-        setStudents={setStudents}
-        isDDOpen={isDDOpen}
-        setIsDDOpen={setIsDDOpen}
-      />
+      {/* Modal for adding a student */}
+      <Modal show={isModalOpen} onHide={handleModalClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Student</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={(e) => { e.preventDefault(); }}>
+            {/* Add input fields for student information */}
+            <Form.Group controlId="formFirstName">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control type="text" placeholder="Enter first name" required />
+            </Form.Group>
 
-      <li>
-        <hr className="dropdown-divider" />
-      </li>
-      <li>
-        <a className="dropdown-item" id="createCohort" href="#">
-          Create a New Cohort
-        </a>
-      </li>
-    </ul>
-  )}
-</div>
+            <Form.Group controlId="formLastName">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control type="text" placeholder="Enter last name" required />
+            </Form.Group>
 
-    </div>
-        
-            <div>
-              <button className='mx-12'>Modal</button>
-            </div>
+            <Form.Group controlId="formBranch">
+              <Form.Label>Branch</Form.Label>
+              <Form.Control type="text" placeholder="Enter branch" required />
+            </Form.Group>
+
+            <Form.Group controlId="formETSDate">
+              <Form.Label>ETS Date</Form.Label>
+              <Form.Control type="date" required />
+            </Form.Group>
+
+            <Form.Group controlId="formContactNumber">
+              <Form.Label>Contact Number</Form.Label>
+              <Form.Control type="tel" placeholder="Enter contact number" required />
+            </Form.Group>
+
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" required />
+            </Form.Group>
+
+            <Form.Group controlId="formLinkedIn">
+              <Form.Label>LinkedIn URL</Form.Label>
+              <Form.Control type="url" placeholder="Enter LinkedIn URL" required />
+            </Form.Group>
+
+            <Form.Group controlId="formGithub">
+              <Form.Label>Github URL</Form.Label>
+              <Form.Control type="url" placeholder="Enter GitHub URL" required />
+            </Form.Group>
+
+            <Form.Group controlId="formComments">
+              <Form.Label>Additional Comments</Form.Label>
+              <Form.Control as="textarea" rows={4} placeholder="Enter additional comments" />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleModalClose}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={() => handleAddStudent(/* Pass the form data here */)}>
+            Add
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
