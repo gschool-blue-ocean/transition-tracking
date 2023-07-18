@@ -12,7 +12,7 @@ export default function Mcsp({ cohort, students, setStudents, isDDOpen, setIsDDO
                setStudents={setStudents}
                isDDOpen={isDDOpen}
                setIsDDOpen={setIsDDOpen}/>
-        <Students students={students} />
+        <Students students={students}  setStudents={setStudents}/>
         </div>
   );
 }
