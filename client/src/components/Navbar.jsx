@@ -16,7 +16,6 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 				</div>
 				<div className="btn-group">
 					<button onClick={() => setIsDDOpen((prev) => !prev)}>MCSP..</button>
-
 					{isDDOpen && (
 						<ul className="dropdown-menu">
 							<Dropdown
