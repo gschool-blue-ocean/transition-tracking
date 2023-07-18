@@ -7,10 +7,10 @@
     "lint": "prettier --check .",
     "test": "concurrently \"npm:test:*\"",
     "ci": "npm run lint && npm run test",
-    "start": "npm start --prefix api",
     "test:client": "npm run test --prefix=client",
     "test:api": "npm run test --prefix=api",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix api && npm install --prefix client && npm run build --prefix client"
+    "build": "vite build",
+    "start": "npm start --prefix=api"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
