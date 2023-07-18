@@ -27,7 +27,7 @@ const Student = ({ students, setStudents }) => {
       };
     } else if (status === "Seperated") {
       return {
-        text: "Seperated",
+        text: "Separated",
         color: "green",
       };
     } else if (status === "more than 6 months prior ETS") {
@@ -51,12 +51,16 @@ const Student = ({ students, setStudents }) => {
             <div className="status">
               <p>{renderStatus(student.status).text}</p>
               <div
+              <p>{renderStatus(student.status).text}</p>
+              <div
                 className="color-circle"
                 style={{ backgroundColor: renderStatus(student.status).color }}
               ></div>
             </div>
+            </div>
             <h2 className="name">
               {student.first_name} {student.last_name}
+            </h2>
             </h2>
           </div>
           <br />
@@ -82,11 +86,34 @@ const Student = ({ students, setStudents }) => {
                   ))
                 : {}}
             </div>
+            <div className="comment">
+              {Object.entries(student.comment)
+                ? Object.entries(student.comment).map(([key, value]) => (
+                    <p key={key}>
+                      {key} : {value}
+                    </p>
+                  ))
+                : {}}
+            </div>
 
             <button onClick={() => openModal(student.id)}>
               |Make a Comment|
             </button>
+            <button onClick={() => openModal(student.id)}>
+              |Make a Comment|
+            </button>
 
+            {selectedStudent === student.id && (
+              <Modal
+                onClose={closeModal}
+                studentId={student.id}
+                students={students}
+                setStudents={setStudents}
+              />
+            )}
+            <br />
+          </div>
+        </div>
             {selectedStudent === student.id && (
               <Modal
                 onClose={closeModal}
