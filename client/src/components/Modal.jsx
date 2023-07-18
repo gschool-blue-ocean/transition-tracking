@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function Modal({ onClose, studentId, setStudents }) {
+
 	const [comment, setComment] = useState("");
 	console.log("from modal: ", setStudents);
 	const handleComment = (e) => {

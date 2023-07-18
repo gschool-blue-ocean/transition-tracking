@@ -1,11 +1,13 @@
 import { db } from "../db/database.js";
 import {
+
 	allCohorts,
 	allStudents,
 	speCohort,
 	addCohort,
 	deleteCohort,
 	postComment,
+  
 } from "./queries.js";
 
 export const getAllCohorts = async (req, res) => {
@@ -49,6 +51,7 @@ export const addComment = async (req, res) => {
 			return;
 		}
 
+
 		const results = await db.query(postComment, [commentObject, id]);
 		res.status(201).send(results.rows[0]);
 	} catch (error) {
@@ -78,4 +81,38 @@ export const delCohort = async (req, res) => {
 	} catch (error) {
 		res.status(500).json({ error: error.message });
 	}
+};
+
+export const addingStudent = async (req, res) => {
+  try {
+    const {
+      first_name,
+      last_name,
+      email,
+      phone,
+      branch,
+      status,
+      ets,
+      linkedin,
+      github,
+      comment,
+      cohort_id,
+    } = req.body;
+    const result = await db.query(addStudent, [
+      first_name,
+      last_name,
+      email,
+      phone,
+      branch,
+      status,
+      ets,
+      linkedin,
+      github,
+      comment,
+      cohort_id,
+    ]);
+    res.send(result.rows[0]);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
