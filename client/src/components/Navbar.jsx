@@ -11,6 +11,19 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
+	// States for adding a student
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
+	const [branch, setBranch] = useState("");
+	const [ets, setETS] = useState("");
+	const [status, setStatus] = useState("");
+	const [linkedin, setLinkedin] = useState("");
+	const [github, setGithub] = useState("");
+	const [comment, setComment] = useState("");
+	const [cohortID, setCohortID] = useState("");
+
 	const handleItemClick = (item) => {
 		setActiveItem(item);
 	};
@@ -23,6 +36,10 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 		setIsModalOpen(false);
 	};
 
+	const handleChange = (e) => {
+		console.log(e.target.value);
+	};
+
 	const handleCommentsModalOpen = () => {
 		//some code to access student.comments and display them in the modal
 		setIsCommentsOpen(true);
@@ -30,6 +47,38 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 
 	const handleCommentsModalClose = () => {
 		setIsCommentsOpen(false);
+	};
+
+	// Handle the submit of the add student form
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+
+		axios
+			.post("/api/students", {
+				first_name: firstName,
+				last_name: lastName,
+				email: email,
+				phone: phone,
+				branch: branch,
+				ets: ets,
+				status: status,
+				linkedin: linkedin,
+				github: github,
+				comment: comment,
+				cohort_id: cohortID,
+			})
+			.then((response) => {
+				// Handle successful response if needed
+				console.log("Request successful!", response.data);
+
+				setCohort((cohorts) => {
+					return [...cohorts, response.data];
+				});
+			})
+			.catch((error) => {
+				// Handle errors
+				console.error("Error sending POST request:", error);
+			});
 	};
 
 	const handleAddStudent = (studentData) => {
@@ -93,55 +142,99 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 					<Modal.Title>Add Student</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<Form
-						onSubmit={(e) => {
-							e.preventDefault();
-						}}
-					>
+					<Form onSubmit={handleFormSubmit}>
 						{/* Add input fields for student information */}
 						<Form.Group controlId="formFirstName">
 							<Form.Label>First Name</Form.Label>
-							<Form.Control type="text" placeholder="Enter first name" required />
+							<Form.Control
+								type="text"
+								placeholder="Enter first name"
+								value={firstName}
+								onChange={handleChange}
+								required
+							/>
 						</Form.Group>
 
 						<Form.Group controlId="formLastName">
 							<Form.Label>Last Name</Form.Label>
-							<Form.Control type="text" placeholder="Enter last name" required />
+							<Form.Control
+								type="text"
+								placeholder="Enter last name"
+								value={lastName}
+								onChange={handleChange}
+								required
+							/>
 						</Form.Group>
 
 						<Form.Group controlId="formBranch">
 							<Form.Label>Branch</Form.Label>
-							<Form.Control type="text" placeholder="Enter branch" required />
+							<Form.Control
+								type="text"
+								placeholder="Enter branch"
+								value={branch}
+								onChange={handleChange}
+								required
+							/>
 						</Form.Group>
 
 						<Form.Group controlId="formETSDate">
 							<Form.Label>ETS Date</Form.Label>
-							<Form.Control type="date" required />
+							<Form.Control type="date" value={ets} onChange={handleChange} required />
 						</Form.Group>
 
 						<Form.Group controlId="formContactNumber">
 							<Form.Label>Contact Number</Form.Label>
-							<Form.Control type="tel" placeholder="Enter contact number" required />
+							<Form.Control
+								type="tel"
+								placeholder="Enter contact number"
+								value={phone}
+								onChange={handleChange}
+								required
+							/>
 						</Form.Group>
 
 						<Form.Group controlId="formEmail">
 							<Form.Label>Email</Form.Label>
-							<Form.Control type="email" placeholder="Enter email" required />
+							<Form.Control
+								type="email"
+								placeholder="Enter email"
+								value={email}
+								onChange={handleChange}
+								required
+							/>
 						</Form.Group>
 
 						<Form.Group controlId="formLinkedIn">
 							<Form.Label>LinkedIn URL</Form.Label>
-							<Form.Control type="url" placeholder="Enter LinkedIn URL" required />
+							<Form.Control
+								type="url"
+								placeholder="Enter LinkedIn URL"
+								value={linkedin}
+								onChange={handleChange}
+								required
+							/>
 						</Form.Group>
 
 						<Form.Group controlId="formGithub">
 							<Form.Label>Github URL</Form.Label>
-							<Form.Control type="url" placeholder="Enter GitHub URL" required />
+							<Form.Control
+								type="url"
+								placeholder="Enter GitHub URL"
+								value={github}
+								onChange={handleChange}
+								required
+							/>
 						</Form.Group>
 
 						<Form.Group controlId="formComments">
 							<Form.Label>Additional Comments</Form.Label>
-							<Form.Control as="textarea" rows={4} placeholder="Enter additional comments" />
+							<Form.Control
+								as="textarea"
+								rows={4}
+								placeholder="Enter additional comments"
+								value={comment}
+								onChange={handleChange}
+							/>
 						</Form.Group>
 					</Form>
 				</Modal.Body>
