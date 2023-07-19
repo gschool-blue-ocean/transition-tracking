@@ -1,13 +1,15 @@
 import { db } from "../db/database.js";
 import {
-
-	allCohorts,
-	allStudents,
-	speCohort,
-	addCohort,
-	deleteCohort,
-	postComment,
-  
+  allCohorts,
+  allStudents,
+  speCohort,
+  addCohort,
+  deleteCohort,
+  postComment,
+  addStudent,
+  cohortComments,
+  deleteStudent,
+  delComm
 } from "./queries.js";
 
 export const getAllCohorts = async (req, res) => {
@@ -46,12 +48,6 @@ export const addComment = async (req, res) => {
 		const commentObject = {};
 		commentObject[`${commentkey}`] = `${commentValue}`;
 		const { id } = req.params;
-		if (!comment) {
-			res.sendStatus(422);
-			return;
-		}
-
-
 		const results = await db.query(postComment, [commentObject, id]);
 		res.status(201).send(results.rows[0]);
 	} catch (error) {
@@ -112,6 +108,43 @@ export const addingStudent = async (req, res) => {
       cohort_id,
     ]);
     res.send(result.rows[0]);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getCohortComments = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await db.query(cohortComments, [id]);
+    res.send(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const delStudent = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await db.query(deleteStudent, [id]).catch();
+    res.send(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const delComment = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const commentKey = req.body["key"];
+    const comments = await db.query(delComm, [id]);
+    const commentObject = comments.rows[0].comment;
+    
+    delete commentObject[`${commentKey}`];
+    
+    const results = await db.query(postComment, [commentObject, id]);
+  
+    res.status(201).send(results.rows[0]);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

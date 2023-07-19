@@ -11,3 +11,9 @@ export const addCohort = `INSERT INTO cohort(cohort_id, instructor, start_date, 
 export const deleteCohort = `DELETE FROM cohort WHERE cohort_id = $1`;
 
 export const addStudent = `INSERT INTO students (first_name, last_name, email, phone, branch, status, ets, linkedin, github, comment, cohort_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`;
+
+export const cohortComments = `SELECT first_name, last_name, comment FROM students WHERE cohort_id = $1`;
+
+export const deleteStudent = `DELETE FROM students WHERE id = $1 RETURNING *`;
+
+export const delComm =  `SELECT comment FROM students WHERE id = $1`

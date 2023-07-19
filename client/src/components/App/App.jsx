@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import LandingPage from "../LandingPage";
 import Mcsp from "../Mcsp";
 import Footer from "../Footer";
+import News from "../News";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
@@ -51,6 +52,12 @@ const App = () => {
 							/>
 						}
 					/>
+					<Route path="/news" exact element={<News  
+								cohort={cohort}
+								students={students}
+								setStudents={setStudents}
+								isDDOpen={isDDOpen}
+								setIsDDOpen={setIsDDOpen}/>} />
 				</Routes>
 				<Footer />
 			</Router>

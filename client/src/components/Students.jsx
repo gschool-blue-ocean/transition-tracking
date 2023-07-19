@@ -5,7 +5,11 @@ import "../styles/Students.css";
 
 const Student = ({ students, setStudents }) => {
   const [showModal, setShowModal] = useState(false);
+
   const [selectedStudent, setSelectedStudent] = useState(null);
+  // console.log("from students: ", setStudents);
+  // student.branch
+  // Tayla's added code with html
 
   const openModal = (studentId) => {
     console.log("Modal Opened");
@@ -27,7 +31,7 @@ const Student = ({ students, setStudents }) => {
       };
     } else if (status === "Seperated") {
       return {
-        text: "Separated",
+        text: "Seperated",
         color: "green",
       };
     } else if (status === "more than 6 months prior ETS") {
@@ -40,6 +44,28 @@ const Student = ({ students, setStudents }) => {
         text: "",
         color: "",
       };
+    }
+  };
+
+  const delComment = async (id, commentKey) => {
+    try {
+      await axios
+        .delete(`/api/comment/${id}`, {
+          data: { key: commentKey },
+        })
+        .then(() => {
+          setStudents((students) => {
+            const studentToUpdate = students.find(
+              (student) => student.id === id
+            );
+            const commentObject = studentToUpdate.comment;
+            delete commentObject[`${commentKey}`];
+            studentToUpdate.comment = commentObject;
+            return [...students];
+          });
+        });
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -67,20 +93,21 @@ const Student = ({ students, setStudents }) => {
             <p className="">Contact:</p>
             <p>{student.email}</p>
             <p>{student.phone}</p>
-
-            {/* <p>LinkedIn: {student.linkedin}</p>
-            <p>GitHub: {student.github}</p> */}
-
+            {/*
+          <p>LinkedIn: {student.linkedin}</p>
+          <p>GitHub: {student.github}</p> */}
             <div className="comment">
               {Object.entries(student.comment)
                 ? Object.entries(student.comment).map(([key, value]) => (
                     <p key={key}>
                       {key} : {value}
+                      <button className="m-[10px] fa fa-trash text-red-600" onClick={() => delComment(student.id, key)}>
+                        
+                      </button>
                     </p>
                   ))
                 : {}}
             </div>
-
             <button onClick={() => openModal(student.id)}>
               |Make a Comment|
             </button>
