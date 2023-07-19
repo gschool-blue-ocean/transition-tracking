@@ -185,6 +185,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
             Cancel
           </Button>
           <Button
+            className="custom-add-btn"
             variant="primary"
             onClick={() => handleAddStudent(/* Pass the form data here */)}
           >

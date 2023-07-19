@@ -174,3 +174,38 @@
 .add-student:hover {
   border: 1px solid #bcbcbc;
 }
+
+.modal-body input[type="tel"],
+  .modal-body input[type="email"],
+  .modal-body input[type="url"],
+  .modal-body textarea
+   {
+	background-color: #232323;
+	border: 1px solid #4e4e4e;
+	color:#dad9d9;
+	
+  }
+
+  .custom-add-btn {
+    background-color: #6c757d;
+    color: #ffffff;
+    margin-top: 2px;
+    padding: 6px;
+    width: 4.3rem;
+    }
+    
+    /* Custom styles for the submit button inside the modal when it's being hovered */
+    .custom-add-btn:hover {
+      background-color: #5f676d;
+      color: #ffffff;
+      margin-top: 2px;
+      padding: 6px;
+      width: 4.3rem;
+    }
+    
+    /* Custom styles for the submit button inside the modal when it's active (clicked) */
+    .custom-add-btn:active {
+    background-color: #d17e00;
+    border-color: #d17e00;
+    }
+    
