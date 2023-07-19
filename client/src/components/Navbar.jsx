@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap/esm";
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../styles/Navbar.css';
+import { MdMenu, MdMenuOpen } from "react-icons/md"
+import { BsPersonPlus } from "react-icons/bs";
 import Dropdown from './Dropdown';
 
 
@@ -31,7 +33,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
   };
 
   return (
-    <div clasName="header">
+    <div className="header">
       <div className="nav">
         <div className="logo"></div>
         <div className="nav-bar">
@@ -60,7 +62,9 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
         </div>
         <div className="btn-group">
 
-          <button className="classes" onClick={() => setIsDDOpen((prev) => !prev)}>MCSP..</button>
+        <button className="classes" onClick={() => setIsDDOpen((prev) => !prev)}>
+            {isDDOpen ? <MdMenuOpen /> : <MdMenu />}
+          </button>
           {isDDOpen && (
             <ul className="dropdown-menu show">
 
@@ -71,18 +75,17 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
                 isDDOpen={isDDOpen}
                 setIsDDOpen={setIsDDOpen}
               />
-
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
+              
               <li>
                 <a className="dropdown-item" id="createCohort" href="#">
-                  Create a New Cohort
+                  Create New +
                 </a>
               </li>
             </ul>
           )}
-          <button onClick={handleModalOpen}>Add Student</button>
+           <button className="add-student" onClick={handleModalOpen}>
+            <BsPersonPlus />
+          </button>
         </div>
       </div>
 

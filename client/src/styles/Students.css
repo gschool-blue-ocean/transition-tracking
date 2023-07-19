@@ -17,8 +17,14 @@
   font-family: sans-serif;
   font-weight: 400;
   font-size: medium;
+   box-shadow: 0 0 0 rgb(59, 59, 59);
+   transition: box-shadow 0.3s ease;
+   cursor: pointer;
 }
 
+.student:hover {
+  box-shadow: 5px 5px 5px rgba(59, 59, 59, 0.522);
+}
 .student-head {
   display: flex;
   flex-direction: row-reverse;
@@ -42,7 +48,7 @@
 .status {
   background-color: rgba(184, 181, 181, 0.389);
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 5px;
   color: white;
   padding: 8px;

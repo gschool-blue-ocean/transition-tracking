@@ -6,6 +6,10 @@
   height: 3rem;
   z-index: 999;
 }
+
+.logo {
+  width: 200px;
+}
 .nav {
   display: flex;
   justify-content: space-between;
@@ -102,28 +106,34 @@
 /* Updated CSS with Smaller Dropdown Width */
 
 .btn-group {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  height: 80%;
+  margin-top: 4px;
+  
 }
 
 .classes {
   background-color: #00000073;
   color: #ffffff;
   padding: 10px 20px;
-  border: none;
   cursor: pointer;
   border-radius: 8px;
-  width: 120px; /* Set the width of the dropdown button */
+}
+
+.classes:hover {
+  border: 1px solid #bcbcbc;
 }
 
 .dropdown-menu {
   display: none;
   position: absolute;
   top: calc(100% + 5px);
-  left: 0;
+  left: calc(100% + -189px);
   min-width: 150px; /* Set the minimum width for the dropdown menu */
   max-height: 200px;
-  background-color: #00000083;
+  background-color: #2c2c2cfd;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   z-index: 1;
@@ -132,13 +142,18 @@
 }
 
 .dropdown-menu.show {
-  display: block;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 }
+
 
 .dropdown-item {
   display: block;
-  padding: 10px 20px;
-  color: #333;
+  padding: 10px 43px;
+  color: #bcbcbc;
   text-decoration: none;
   transition: background-color 0.2s;
 }
@@ -147,9 +162,15 @@
   background-color: #9b9b9b;
 }
 
-.dropdown-divider {
-  border: 1px solid #ddd;
-  margin: 5px 0;
+
+.add-student {
+  background-color: #00000073;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
-
+.add-student:hover {
+  border: 1px solid #bcbcbc;
+}
