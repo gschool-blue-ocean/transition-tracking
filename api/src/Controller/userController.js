@@ -8,6 +8,7 @@ import {
   postComment,
   addStudent,
   cohortComments,
+  deleteStudent,
 } from "./queries.js";
 
 export const getAllCohorts = async (req, res) => {
@@ -124,11 +125,42 @@ export const addingStudent = async (req, res) => {
   }
 };
 
-export const getAllComments = async (req, res) => {
+export const getCohortComments = async (req, res) => {
   try {
     const id = req.params.id;
     const result = await db.query(cohortComments, [id]);
     res.send(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const delStudent = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await db.query(deleteStudent, [id]).catch();
+    res.send(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const delComment = async (req, res) => {
+  try {
+    const id = req.params.id;
+    console.log(req.body);
+    const commentKey = req.body["key"];
+    console.log(commentKey);
+    const comments = await db.query(
+      "SELECT comment FROM students WHERE id = $1",
+      [id]
+    );
+    const commentObject = comments.rows[0].comment;
+    console.log(commentObject);
+    delete commentObject[`${commentKey}`];
+
+    const results = await db.query(postComment, [commentObject, id]);
+    res.status(201).send(results.rows[0]);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

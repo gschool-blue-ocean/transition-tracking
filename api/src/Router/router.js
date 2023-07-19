@@ -8,6 +8,8 @@ import {
   addComment,
   addingStudent,
   getCohortComments,
+  delStudent,
+  delComment,
 } from "../Controller/userController.js";
 
 const router = Router();
@@ -27,11 +29,13 @@ router.delete("/cohort/:id", delCohort);
 router.post("/cohort", addingCohort);
 // create a new student
 router.post("/students", addingStudent);
-
-// WIP
 // get all comments from cohort
 router.get("/comments/:id", getCohortComments);
-// delete comment
 // delete student from cohort
+router.delete("/students/:id", delStudent);
+// delete comment
+router.delete("/comment/:id", delComment);
+
+// WIP
 
 export default router;
