@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 import Dashboard from "./Dashboard";
 import "../styles/Mcsp.css";
 
-
 export default function Mcsp({
   cohort,
   students,
@@ -22,8 +21,8 @@ export default function Mcsp({
         setIsDDOpen={setIsDDOpen}
       />
       <div className="dash">
-      <Dashboard students={students} />
-      <Students students={students} />
+        <Dashboard students={students} />
+        <Students students={students} setStudents={setStudents} />
       </div>
     </div>
   );
