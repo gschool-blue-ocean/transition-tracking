@@ -1,0 +1,13 @@
+.cohorts {
+  display: block;
+  padding: 7px 65px;
+  color: #bcbcbc;
+  text-decoration: none;
+  transition: background-color 0.5s;
+  transition: color 0.05s;
+}
+
+.cohorts:hover {
+    background-color: #9b9b9b;
+    color: black;
+}

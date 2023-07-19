@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function Modal({ onClose, studentId, setStudents }) {
-  const [newComment, setNewComment] = useState("");
-  const [detail, setDetail] = useState("");
 
-  const handleComment = (e) => {
-    setNewComment(e.target.value);
-  };
+	const [comment, setComment] = useState("");
+	console.log("from modal: ", setStudents);
+	const handleComment = (e) => {
+		console.log(e.target.value);
+		setComment(e.target.value);
+	};
 
   const handleDetail = (e) => {
     setDetail(e.target.value);
