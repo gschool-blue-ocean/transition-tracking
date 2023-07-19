@@ -12,6 +12,17 @@ function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen, set
 	// 	setModalOpen(true);
 	// };
 
+	const handleClick = (id) => {
+		fetch(`api/cohort/${id}`)
+		  .then((res) => res.json())
+		  .then((students) => {
+			setStudents(students);
+		  });
+	
+		setIsDDOpen(false);
+	  };
+	
+
 	useEffect(() => {
 		const typingText = document.getElementById("typing-text");
 		if (typingText) {
@@ -69,20 +80,24 @@ function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen, set
 			<div className="mcsp">
 				<h1 className="get-started">Get Started by selecting a cohort</h1>
 
-				<div>
-					<CreateCohort setCohort={setCohort} />
-				</div>
-
-				<ul className="menu">
+				<ul className="menu1">
 					<li>
-						<a href="#">MCSP...</a>
+						<a className="important"href="#">MCSP...</a>
 						<ul>
-							<Dropdown
-								cohort={cohort}
-								students={students}
-								setStudents={setStudents}
-								setIsDDOpen={setIsDDOpen}
-							/>
+						<div className="cohort-land">
+					{cohort.map((cohorts) => (
+						<Link key={cohorts.cohort_id} to="/mcsp">
+						<div className="cohorts-land">
+							<button
+							className="cohortBtn1"
+							onClick={() => handleClick(cohorts.cohort_id)}
+							>
+							{cohorts.cohort_id}
+							</button>
+						</div>
+						</Link>
+					))}
+					</div>
 							{/* <li>
 								<a className="dropdown-item" id="createCohort">
 									<CreateCohort />
@@ -93,6 +108,9 @@ function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen, set
 				</ul>
 
 				<div className="btn-group"></div>
+				<div>
+					<CreateCohort setCohort={setCohort} />
+				</div>
 			</div>
 
 			<div className="mockup-wrapper">
