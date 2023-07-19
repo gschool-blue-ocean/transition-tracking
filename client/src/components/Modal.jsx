@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function Modal({ onClose, studentId, setStudents }) {
-
-	const [comment, setComment] = useState("");
-	console.log("from modal: ", setStudents);
+	const [newComment, setComment] = useState("");
+  const [detail, setDetail] = useState("");
+	
 	const handleComment = (e) => {
 		console.log(e.target.value);
 		setComment(e.target.value);
@@ -16,8 +16,9 @@ function Modal({ onClose, studentId, setStudents }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = axios
-      .patch(`/api/students/${studentId}`, {
+    
+    const result = axios.patch(`/api/students/${studentId}`, {
+
         comment: `${newComment}:${detail}`,
       })
       .then(() => {

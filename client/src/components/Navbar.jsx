@@ -5,6 +5,8 @@ import "../styles/Navbar.css";
 import { MdMenu, MdMenuOpen } from "react-icons/md";
 import { BsPersonPlus } from "react-icons/bs";
 import Dropdown from "./Dropdown";
+import { Link } from "react-router-dom";
+
 
 function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
   const [activeItem, setActiveItem] = useState("dashboard");
@@ -23,14 +25,6 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
     setIsModalOpen(false);
   };
 
-  const handleCommentsModalOpen = () => {
-    //some code to access student.comments and display them in the modal
-    setIsCommentsOpen(true);
-  };
-
-  const handleCommentsModalClose = () => {
-    setIsCommentsOpen(false);
-  };
 
   const handleAddStudent = (studentData) => {
     // Implement the logic to add the student to the 'students' state here.
@@ -70,11 +64,9 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
             >
               Dashboard
             </div>
-            <div
-              className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}
-              onClick={handleCommentsModalOpen}
-            >
-              News
+            <div className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}>
+              <Link to="/news">News</Link>
+
             </div>
             <div
               className={`nav-item3 ${activeItem === "help" ? "active" : ""}`}
@@ -229,35 +221,6 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
             onClick={() => handleAddStudent(/* Pass the form data here */)}
           >
             Add
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
-      {/* Modal for comments */}
-      <Modal show={isCommentsOpen} onHide={handleCommentsModalClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Comments</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {students.map((student) => (
-            <div key={student.id}>
-              <h4>{`${student.first_name} ${student.last_name}`}</h4>
-              <div className="comment">
-                {Object.entries(student.comment)
-                  ? Object.entries(student.comment).map(([key, value]) => (
-                      <p key={key}>
-                        {key}: {value}
-                      </p>
-                    ))
-                  : null}
-              </div>
-            </div>
-          ))}
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCommentsModalClose}>
-            Close
           </Button>
         </Modal.Footer>
       </Modal>

@@ -9,7 +9,7 @@ import {
   addStudent,
   cohortComments,
   deleteStudent,
-
+  delComm
 } from "./queries.js";
 
 export const getAllCohorts = async (req, res) => {
@@ -48,12 +48,6 @@ export const addComment = async (req, res) => {
 		const commentObject = {};
 		commentObject[`${commentkey}`] = `${commentValue}`;
 		const { id } = req.params;
-		if (!comment) {
-			res.sendStatus(422);
-			return;
-		}
-
-
 		const results = await db.query(postComment, [commentObject, id]);
 		res.status(201).send(results.rows[0]);
 	} catch (error) {
@@ -143,15 +137,12 @@ export const delComment = async (req, res) => {
   try {
     const id = req.params.id;
     const commentKey = req.body["key"];
-    const comments = await db.query(
-      "SELECT comment FROM students WHERE id = $1",
-      [id]
-    );
-    // console.log(comments);
+    const comments = await db.query(delComm, [id]);
     const commentObject = comments.rows[0].comment;
     delete commentObject[`${commentKey}`];
-
+    
     const results = await db.query(postComment, [commentObject, id]);
+  
     res.status(201).send(results.rows[0]);
   } catch (error) {
     res.status(500).json({ error: error.message });

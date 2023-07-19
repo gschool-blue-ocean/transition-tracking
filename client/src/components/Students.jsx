@@ -5,7 +5,11 @@ import "../styles/Students.css";
 
 const Student = ({ students, setStudents }) => {
   const [showModal, setShowModal] = useState(false);
+
   const [selectedStudent, setSelectedStudent] = useState(null);
+  // console.log("from students: ", setStudents);
+  // student.branch
+  // Tayla's added code with html
 
   const openModal = (studentId) => {
     console.log("Modal Opened");
@@ -93,20 +97,19 @@ const Student = ({ students, setStudents }) => {
             {/*
           <p>LinkedIn: {student.linkedin}</p>
           <p>GitHub: {student.github}</p> */}
-
             <div className="comment">
               {Object.entries(student.comment)
                 ? Object.entries(student.comment).map(([key, value]) => (
                     <p key={key}>
                       {key} : {value}
-                      <button onClick={() => delComment(student.id, key)}>
-                        X
+                      <button className="m-[10px] fa fa-trash text-red-600"
+                        onClick={() => delComment(student.id, key)
+                        }>                     
                       </button>
                     </p>
                   ))
                 : {}}
             </div>
-
             <button onClick={() => openModal(student.id)}>
               |Make a Comment|
             </button>

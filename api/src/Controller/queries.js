@@ -15,3 +15,5 @@ export const addStudent = `INSERT INTO students (first_name, last_name, email, p
 export const cohortComments = `SELECT first_name, last_name, comment FROM students WHERE cohort_id = $1`;
 
 export const deleteStudent = `DELETE FROM students WHERE id = $1 RETURNING *`;
+
+export const delComm =  `SELECT comment FROM students WHERE id = $1`
