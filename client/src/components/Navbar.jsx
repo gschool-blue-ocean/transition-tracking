@@ -79,12 +79,6 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 								isDDOpen={isDDOpen}
 								setIsDDOpen={setIsDDOpen}
 							/>
-
-							<li>
-								<a className="dropdown-item" id="createCohort" href="#">
-									Create New +
-								</a>
-							</li>
 						</ul>
 					)}
 					<button className="add-student" onClick={handleModalOpen}>
