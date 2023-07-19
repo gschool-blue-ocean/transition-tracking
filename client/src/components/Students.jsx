@@ -47,6 +47,28 @@ const Student = ({ students, setStudents }) => {
     }
   };
 
+  const delComment = async (id, commentKey) => {
+    try {
+      await axios
+        .delete(`/api/comment/${id}`, {
+          data: { key: commentKey },
+        })
+        .then(() => {
+          setStudents((students) => {
+            const studentToUpdate = students.find(
+              (student) => student.id === id
+            );
+            const commentObject = studentToUpdate.comment;
+            delete commentObject[`${commentKey}`];
+            studentToUpdate.comment = commentObject;
+            return [...students];
+          });
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="students">
       {students.map((student) => (
@@ -79,6 +101,9 @@ const Student = ({ students, setStudents }) => {
                 ? Object.entries(student.comment).map(([key, value]) => (
                     <p key={key}>
                       {key} : {value}
+                      <button onClick={() => delComment(student.id, key)}>
+                        X
+                      </button>
                     </p>
                   ))
                 : {}}

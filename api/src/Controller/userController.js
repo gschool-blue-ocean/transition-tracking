@@ -148,15 +148,13 @@ export const delStudent = async (req, res) => {
 export const delComment = async (req, res) => {
   try {
     const id = req.params.id;
-    console.log(req.body);
     const commentKey = req.body["key"];
-    console.log(commentKey);
     const comments = await db.query(
       "SELECT comment FROM students WHERE id = $1",
       [id]
     );
+    // console.log(comments);
     const commentObject = comments.rows[0].comment;
-    console.log(commentObject);
     delete commentObject[`${commentKey}`];
 
     const results = await db.query(postComment, [commentObject, id]);
