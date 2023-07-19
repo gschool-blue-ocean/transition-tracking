@@ -14,6 +14,8 @@ const CreateCohort = ({ setCohort }) => {
 		setModalOpen(false);
 	};
 
+	console.log(isModalOpen);
+
 	const handleChange = (e) => {
 		setCohortName(e.target.value);
 	};
@@ -22,11 +24,6 @@ const CreateCohort = ({ setCohort }) => {
 		e.preventDefault();
 
 		const formData = new FormData(e.target);
-
-		// Here you can send the POST request to your backend with the cohortName value
-		// For example, using the fetch API or axios
-		// Remember to handle errors and success scenarios as needed
-		// console.log(formData.get("instructor"));
 
 		axios
 			.post("/api/cohort", {
