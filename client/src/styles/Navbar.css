@@ -179,11 +179,34 @@
   .modal-body input[type="email"],
   .modal-body input[type="url"],
   .modal-body textarea
+
    {
 	background-color: #232323;
 	border: 1px solid #4e4e4e;
 	color:#dad9d9;
 	
+  }
+  .modal-body select {
+    background-color: #232323;
+    border: 1px solid #4e4e4e;
+    color: #dad9d9;
+  }
+
+  .modal-body select::-ms-expand {
+    color: #dad9d9; /* For Internet Explorer */
+  }
+  
+  /* You can also change the arrow appearance in other browsers if needed */
+  .modal-body select::after {
+    content: '\f0d7'; /* FontAwesome chevron-down icon */
+    font-family: 'FontAwesome'; /* Load the FontAwesome font-family */
+    font-size: 12px;
+    color: #dad9d9;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
   }
 
   .custom-add-btn {

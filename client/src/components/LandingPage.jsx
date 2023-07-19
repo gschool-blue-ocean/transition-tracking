@@ -98,11 +98,6 @@ function LandingPage({ cohort, students, setStudents, isDDOpen, setIsDDOpen, set
 						</Link>
 					))}
 					</div>
-							{/* <li>
-								<a className="dropdown-item" id="createCohort">
-									<CreateCohort />
-								</a>
-							</li> */}
 						</ul>
 					</li>
 				</ul>
