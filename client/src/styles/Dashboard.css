@@ -39,8 +39,6 @@
   justify-content: space-evenly;
 }
 
-
-
 .percent {
   width: 60px;
   height: 25px;
@@ -87,4 +85,17 @@
 #green-color-bar {
   background: #01c04d;
   border-radius: 30px;
+}
+
+.search-name {
+  display: flex;
+  width: 14rem;
+  height: 5em;
+  flex-shrink: 0;
+  flex-direction: column;
+  border-radius: 15px;
+  background: rgba(160, 159, 159, 0.24);
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 }

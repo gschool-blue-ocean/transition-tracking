@@ -84,6 +84,13 @@ const Dashboard = ({ students }) => {
         </div>
       </div>
     </div>
+    <div className="search-name">
+    search student by name
+    <input
+    placeholder="John Doe">
+    
+      </input>
+    </div>
     </div>
   );
 };
