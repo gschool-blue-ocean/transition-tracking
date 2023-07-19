@@ -40,6 +40,22 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
     handleModalClose();
   };
 
+  const exampleCohorts = [
+    'Cohort A',
+    'Cohort B',
+    'Cohort C',
+    'Cohort D',
+    // Add more cohorts as needed
+  ];
+  
+  const status = [
+    'more than 6 months prior ETS',
+    'within 6 months prior ETS',
+    'Separated',
+    // Add more cohorts as needed
+  ];
+  
+
   return (
     <div className="header">
       <div className="nav">
@@ -110,6 +126,29 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
             }}
           >
             {/* Add input fields for student information */}
+            <Form.Group controlId="formCohort">
+            <Form.Label>Select Cohort</Form.Label>
+            <Form.Control as="select" required>
+              <option value="">-- Select Cohort --</option>
+              {exampleCohorts.map((cohort, index) => (
+                <option key={index} value={cohort}>
+                  {cohort}
+                </option>
+              ))}
+            </Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId="status">
+            <Form.Label>Student Status</Form.Label>
+            <Form.Control as="select" required>
+              <option value="">-- Select Status --</option>
+              {status.map((status, index) => (
+                <option key={index} value={status}>
+                  {status}
+                </option>
+              ))}
+            </Form.Control>
+            </Form.Group>
             <Form.Group controlId="formFirstName">
               <Form.Label>First Name</Form.Label>
               <Form.Control
