@@ -1,133 +1,140 @@
-body {
-  margin: 0;
-  background-color: #030303; /* Dark background color */
-  color: #ffffff; /* Text color */
-  font-family: "Helvetica Neue", Arial, sans-serif;
+.App {
+	margin: 0;
+	background-color: #030303; /* Dark background color */
+	color: #ffffff; /* Text color */
+	font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .landing {
-  margin-left: 100px;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+	margin-left: 100px;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
 
 .hero {
-  margin-top: 2rem;
+	margin-top: 2rem;
 }
 
 .title {
-  font-size: 4rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  white-space: nowrap;
+	font-size: 4rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .title::after {
-  content: "";
-  display: inline-block;
-  width: 0;
-  animation-duration: 1s;
-  animation-timing-function: steps(1, end);
-  animation-fill-mode: forwards;
+	content: "";
+	display: inline-block;
+	width: 0;
+	animation-duration: 1s;
+	animation-timing-function: steps(1, end);
+	animation-fill-mode: forwards;
 }
 
 .title.typing::after {
-  animation-name: typing;
+	animation-name: typing;
 }
 
 .title.deleting::after {
-  animation-name: deleting;
+	animation-name: deleting;
 }
 
 @keyframes typing {
-  from {
-    width: 0;
-  }
+	from {
+		width: 0;
+	}
 }
 
 @keyframes deleting {
-  from {
-    width: 100%;
-  }
+	from {
+		width: 100%;
+	}
 }
 
 .desc {
-  font-weight: lighter;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
+	font-weight: lighter;
+	font-size: 1.8rem;
+	margin-bottom: 2rem;
 }
 
 .mcsp {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #252525; /* Darker background color */
-  width: 50rem;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #252525; /* Darker background color */
+	width: 50rem;
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 .get-started {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #e7e7e7; /* Blue color */
-  margin-bottom: 1rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #e7e7e7; /* Blue color */
+	margin-bottom: 1rem;
 }
 
 .menu {
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  width: 200px;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	width: 200px;
+}
+
+.create-cohort-btn {
+	background: #5e56c5;
+	color: #fff;
+	display: block;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	margin-bottom: 10px;
 }
 
 .menu > li > a {
-  background: #c57356;
-  color: #fff;
-  display: block;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
+	background: #dd9849;
+	color: #fff;
+	display: block;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
 }
 
 .menu ul {
-  background: #ddd;
-  height: auto; /* Change to "auto" to fit all list items */
-  left: 0;
-  opacity: 0;
-  overflow-y: scroll; /* Add scroll feature */
-  position: absolute;
-  transition: all .5s ease;
-  top: 35px;
-  width: 100%;
-  max-height: 200px; /* Adjust maximum height as needed */
+	background: #ddd;
+	height: auto; /* Change to "auto" to fit all list items */
+	left: 0;
+	opacity: 0;
+	overflow-y: scroll; /* Add scroll feature */
+	position: absolute;
+	transition: all 0.5s ease;
+	top: 35px;
+	width: 100%;
+	max-height: 200px; /* Adjust maximum height as needed */
 }
 
 .menu li:hover ul {
-  opacity: 1;
-  transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 }
 
 .menu ul a {
-  color: #000;
-  display: block;
-  padding: 5px 20px;
+	color: #000;
+	display: block;
+	padding: 5px 20px;
 }
-
 
 .mockup {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding-top: 2rem;
-  max-width: 45%;
-  height: auto;
-  margin-left: 900px;
-  margin-top: 125px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-top: 2rem;
+	max-width: 45%;
+	height: auto;
+	margin-left: 900px;
+	margin-top: 125px;
 }
-
-

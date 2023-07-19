@@ -5,11 +5,7 @@ import "../styles/Students.css";
 
 const Student = ({ students, setStudents }) => {
   const [showModal, setShowModal] = useState(false);
-
   const [selectedStudent, setSelectedStudent] = useState(null);
-  // console.log("from students: ", setStudents);
-  // student.branch
-  // Tayla's added code with html
 
   const openModal = (studentId) => {
     console.log("Modal Opened");
@@ -31,7 +27,7 @@ const Student = ({ students, setStudents }) => {
       };
     } else if (status === "Seperated") {
       return {
-        text: "Seperated",
+        text: "Separated",
         color: "green",
       };
     } else if (status === "more than 6 months prior ETS") {
@@ -71,9 +67,11 @@ const Student = ({ students, setStudents }) => {
             <p className="">Contact:</p>
             <p>{student.email}</p>
             <p>{student.phone}</p>
+
             {/*
           <p>LinkedIn: {student.linkedin}</p>
           <p>GitHub: {student.github}</p> */}
+
             <div className="comment">
               {Object.entries(student.comment)
                 ? Object.entries(student.comment).map(([key, value]) => (
@@ -83,6 +81,7 @@ const Student = ({ students, setStudents }) => {
                   ))
                 : {}}
             </div>
+
             <button onClick={() => openModal(student.id)}>
               |Make a Comment|
             </button>
