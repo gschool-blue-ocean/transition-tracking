@@ -37,7 +37,31 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 	};
 
 	const handleChange = (e) => {
-		console.log(e.target.value);
+		// console.log(e.target.value);
+		const {
+			firstName,
+			lastName,
+			email,
+			phone,
+			branch,
+			ets,
+			status,
+			linkedin,
+			github,
+			comment,
+			cohortID,
+		} = e.target;
+		setFirstName(firstName);
+		setLastName(lastName);
+		setEmail(email);
+		setPhone(phone);
+		setBranch(branch);
+		setETS(ets);
+		setStatus(status);
+		setLinkedin(linkedin);
+		setGithub(github);
+		setComment(comment);
+		setCohortID(cohortID);
 	};
 
 	const handleCommentsModalOpen = () => {
