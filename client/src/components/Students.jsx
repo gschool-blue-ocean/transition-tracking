@@ -19,7 +19,6 @@ const Student = ({ students, setStudents }) => {
     setSelectedStudent(null);
   };
 
-  
   const renderStatus = (status) => {
     if (status === "within 6 months prior ETS") {
       return {
@@ -28,7 +27,7 @@ const Student = ({ students, setStudents }) => {
       };
     } else if (status === "Seperated") {
       return {
-        text: "Seperated",
+        text: "Separated",
         color: "green",
       };
     } else if (status === "more than 6 months prior ETS") {
@@ -53,9 +52,7 @@ const Student = ({ students, setStudents }) => {
               <p>{renderStatus(student.status).text}</p>
               <div
                 className="color-circle"
-                style={{
-                  backgroundColor: renderStatus(student.status).color,
-                }}
+                style={{ backgroundColor: renderStatus(student.status).color }}
               ></div>
             </div>
             <h2 className="name">
@@ -70,20 +67,24 @@ const Student = ({ students, setStudents }) => {
             <p className="">Contact:</p>
             <p>{student.email}</p>
             <p>{student.phone}</p>
+
+            {/* <p>LinkedIn: {student.linkedin}</p>
+            <p>GitHub: {student.github}</p> */}
+
             <div className="comment">
-                {Object.entries(student.comment)
+              {Object.entries(student.comment)
                 ? Object.entries(student.comment).map(([key, value]) => (
                     <p key={key}>
                       {key} : {value}
-                      <button>X</button>
                     </p>
-                    
                   ))
-                : null}
+                : {}}
             </div>
+
             <button onClick={() => openModal(student.id)}>
               |Make a Comment|
             </button>
+
             {selectedStudent === student.id && (
               <Modal
                 onClose={closeModal}

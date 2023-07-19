@@ -7,10 +7,10 @@
     "lint": "prettier --check .",
     "test": "concurrently \"npm:test:*\"",
     "ci": "npm run lint && npm run test",
-    "start": "npm start --prefix api",
     "test:client": "npm run test --prefix=client",
     "test:api": "npm run test --prefix=api",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix api && npm install --prefix client && npm run build --prefix client"
+    "build": "vite build",
+    "start": "npm start --prefix=api"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
@@ -19,9 +19,15 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "bootstrap": "^5.3.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "modal": "^1.2.0",
     "pg": "^8.11.1",
-    "postgres": "^3.3.5"
+    "postgres": "^3.3.5",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.9.0-beta.0",
+    "react-icons": "^4.10.1",
+    "react-modal": "^3.16.1"
   }
 }

@@ -1,5 +1,14 @@
 .MCSP {
     background: linear-gradient(135deg, #DE7451 0%, #0D0F47 100%);
-    background-attachment: fixed ;
-    height: auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+
+.dash {
+  display: flex;
+  padding: 20px;
 }
+  
