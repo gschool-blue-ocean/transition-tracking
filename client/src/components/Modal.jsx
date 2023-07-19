@@ -85,17 +85,6 @@ function Modal({ onClose, studentId, setStudents }) {
         </button>
       </form>
     </div>
-    // <>
-    //   <form onSubmit={handleSubmit}>
-    //     <input
-    //       className="text-black"
-    //       placeholder="Appointment: (date)"
-    //       type="text"
-    //       onChange={handleComment}
-    //     />
-    //     <button type="submit">Send</button>
-    //   </form>
-    // </>
   );
 }
 export default Modal;
