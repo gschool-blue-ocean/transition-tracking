@@ -7,6 +7,7 @@ import {
   delCohort,
   addComment,
   addingStudent,
+  getCohortComments,
 } from "../Controller/userController.js";
 
 const router = Router();
@@ -28,5 +29,9 @@ router.post("/cohort", addingCohort);
 router.post("/students", addingStudent);
 
 // WIP
+// get all comments from cohort
+router.get("/comments/:id", getCohortComments);
+// delete comment
+// delete student from cohort
 
 export default router;

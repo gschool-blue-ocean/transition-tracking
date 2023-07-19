@@ -7,6 +7,7 @@ import {
   deleteCohort,
   postComment,
   addStudent,
+  cohortComments,
 } from "./queries.js";
 
 export const getAllCohorts = async (req, res) => {
@@ -118,6 +119,16 @@ export const addingStudent = async (req, res) => {
       cohort_id,
     ]);
     res.send(result.rows[0]);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getAllComments = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await db.query(cohortComments, [id]);
+    res.send(result.rows);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
