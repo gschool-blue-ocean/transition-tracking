@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/Dropdown.css";
 
 function Dropdown({ cohort, setStudents, isDDOpen, setIsDDOpen }) {
   const handleClick = (id) => {
