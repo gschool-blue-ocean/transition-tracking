@@ -62,15 +62,15 @@ const Student = ({ students, setStudents }) => {
           <br />
           <p>{student.branch}</p>
           <p>ETS: {student.ets.split("T")[0]}</p>
-
           <div className="comment">
             <br />
             <p className="">Contact:</p>
             <p>{student.email}</p>
             <p>{student.phone}</p>
 
-            {/* <p>LinkedIn: {student.linkedin}</p>
-            <p>GitHub: {student.github}</p> */}
+            {/*
+          <p>LinkedIn: {student.linkedin}</p>
+          <p>GitHub: {student.github}</p> */}
 
             <div className="comment">
               {Object.entries(student.comment)

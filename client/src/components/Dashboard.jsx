@@ -35,62 +35,57 @@ const Dashboard = ({ students }) => {
     setGreen(greenCount);
   };
 
+  const colorBarHeight = (count) => {
+    if (numberOfStudents === 0) {
+      return "0";
+    } else {
+      return Math.floor((count / numberOfStudents) * 100);
+    }
+  };
+
   return (
     <div className="dashboard">
-    <div className="status-board">
-      <div className="status-name">STATUS</div>
-      <div className="bars">
-        <div className="status-bar">
-          <div className="percent">
-            {Math.floor((red / numberOfStudents) * 100)}%
+      <div className="status-board">
+        <div className="status-name">STATUS</div>
+        <div className="bars">
+          <div className="status-bar">
+            <div className="percent">{colorBarHeight(red)}%</div>
+            <div className="empty-bar">
+              <div
+                className="color-bar"
+                id="red-color-bar"
+                style={{
+                  height: `${colorBarHeight(red)}%`,
+                }}
+              ></div>
+            </div>
           </div>
-          <div className="empty-bar">
-            <div
-              className="color-bar"
-              id="red-color-bar"
-              style={{
-                height: `${Math.floor((red / numberOfStudents) * 100)}%`,
-              }}
-            ></div>
+          <div className="status-bar">
+            <div className="percent">{colorBarHeight(yellow)}%</div>
+            <div className="empty-bar">
+              <div
+                className="color-bar"
+                id="yellow-color-bar"
+                style={{
+                  height: `${colorBarHeight(yellow)}%`,
+                }}
+              ></div>
+            </div>
           </div>
-        </div>
-        <div className="status-bar">
-          <div className="percent">
-            {Math.floor((yellow / numberOfStudents) * 100)}%
-          </div>
-          <div className="empty-bar">
-            <div
-              className="color-bar"
-              id="yellow-color-bar"
-              style={{
-                height: `${Math.floor((yellow / numberOfStudents) * 100)}%`,
-              }}
-            ></div>
-          </div>
-        </div>
-        <div className="status-bar">
-          <div className="percent">
-            {Math.floor((green / numberOfStudents) * 100)}%
-          </div>
-          <div className="empty-bar">
-            <div
-              className="color-bar"
-              id="green-color-bar"
-              style={{
-                height: `${Math.floor((green / numberOfStudents) * 100)}%`,
-              }}
-            ></div>
+          <div className="status-bar">
+            <div className="percent">{colorBarHeight(green)}%</div>
+            <div className="empty-bar">
+              <div
+                className="color-bar"
+                id="green-color-bar"
+                style={{
+                  height: `${colorBarHeight(green)}%`,
+                }}
+              ></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div className="search-name">
-    search student by name
-    <input
-    placeholder="John Doe">
-    
-      </input>
-    </div>
     </div>
   );
 };

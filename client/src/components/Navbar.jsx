@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap/esm";
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../styles/Navbar.css';
-import { MdMenu, MdMenuOpen } from "react-icons/md"
+import "../styles/Navbar.css";
+import { MdMenu, MdMenuOpen } from "react-icons/md";
 import { BsPersonPlus } from "react-icons/bs";
-import Dropdown from './Dropdown';
-
+import Dropdown from "./Dropdown";
 
 function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
-  const [activeItem, setActiveItem] = useState('dashboard');
+  const [activeItem, setActiveItem] = useState("dashboard");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
   const handleItemClick = (item) => {
     setActiveItem(item);
@@ -22,6 +21,15 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 
   const handleModalClose = () => {
     setIsModalOpen(false);
+  };
+
+  const handleCommentsModalOpen = () => {
+    //some code to access student.comments and display them in the modal
+    setIsCommentsOpen(true);
+  };
+
+  const handleCommentsModalClose = () => {
+    setIsCommentsOpen(false);
   };
 
   const handleAddStudent = (studentData) => {
@@ -48,7 +56,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
             </div>
             <div
               className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}
-              onClick={() => handleItemClick("news")}
+              onClick={handleCommentsModalOpen}
             >
               News
             </div>
@@ -61,13 +69,14 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
           </div>
         </div>
         <div className="btn-group">
-
-        <button className="classes" onClick={() => setIsDDOpen((prev) => !prev)}>
+          <button
+            className="classes"
+            onClick={() => setIsDDOpen((prev) => !prev)}
+          >
             {isDDOpen ? <MdMenuOpen /> : <MdMenu />}
           </button>
           {isDDOpen && (
             <ul className="dropdown-menu show">
-
               <Dropdown
                 cohort={cohort}
                 students={students}
@@ -75,7 +84,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
                 isDDOpen={isDDOpen}
                 setIsDDOpen={setIsDDOpen}
               />
-              
+
               <li>
                 <a className="dropdown-item" id="createCohort" href="#">
                   Create New +
@@ -83,7 +92,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
               </li>
             </ul>
           )}
-           <button className="add-student" onClick={handleModalOpen}>
+          <button className="add-student" onClick={handleModalOpen}>
             <BsPersonPlus />
           </button>
         </div>
@@ -95,16 +104,28 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
           <Modal.Title>Add Student</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={(e) => { e.preventDefault(); }}>
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
             {/* Add input fields for student information */}
             <Form.Group controlId="formFirstName">
               <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter first name" required />
+              <Form.Control
+                type="text"
+                placeholder="Enter first name"
+                required
+              />
             </Form.Group>
 
             <Form.Group controlId="formLastName">
               <Form.Label>Last Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter last name" required />
+              <Form.Control
+                type="text"
+                placeholder="Enter last name"
+                required
+              />
             </Form.Group>
 
             <Form.Group controlId="formBranch">
@@ -119,7 +140,11 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 
             <Form.Group controlId="formContactNumber">
               <Form.Label>Contact Number</Form.Label>
-              <Form.Control type="tel" placeholder="Enter contact number" required />
+              <Form.Control
+                type="tel"
+                placeholder="Enter contact number"
+                required
+              />
             </Form.Group>
 
             <Form.Group controlId="formEmail">
@@ -129,17 +154,29 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
 
             <Form.Group controlId="formLinkedIn">
               <Form.Label>LinkedIn URL</Form.Label>
-              <Form.Control type="url" placeholder="Enter LinkedIn URL" required />
+              <Form.Control
+                type="url"
+                placeholder="Enter LinkedIn URL"
+                required
+              />
             </Form.Group>
 
             <Form.Group controlId="formGithub">
               <Form.Label>Github URL</Form.Label>
-              <Form.Control type="url" placeholder="Enter GitHub URL" required />
+              <Form.Control
+                type="url"
+                placeholder="Enter GitHub URL"
+                required
+              />
             </Form.Group>
 
             <Form.Group controlId="formComments">
               <Form.Label>Additional Comments</Form.Label>
-              <Form.Control as="textarea" rows={4} placeholder="Enter additional comments" />
+              <Form.Control
+                as="textarea"
+                rows={4}
+                placeholder="Enter additional comments"
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -147,12 +184,43 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
           <Button variant="secondary" onClick={handleModalClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={() => handleAddStudent(/* Pass the form data here */)}>
+          <Button
+            variant="primary"
+            onClick={() => handleAddStudent(/* Pass the form data here */)}
+          >
             Add
           </Button>
         </Modal.Footer>
       </Modal>
 
+      {/* Modal for comments */}
+      <Modal show={isCommentsOpen} onHide={handleCommentsModalClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Comments</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {students.map((student) => (
+            <div key={student.id}>
+              <h4>{`${student.first_name} ${student.last_name}`}</h4>
+              <div className="comment">
+                {Object.entries(student.comment)
+                  ? Object.entries(student.comment).map(([key, value]) => (
+                      <p key={key}>
+                        {key}: {value}
+                      </p>
+                    ))
+                  : null}
+              </div>
+            </div>
+          ))}
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCommentsModalClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
