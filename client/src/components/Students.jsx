@@ -47,16 +47,13 @@ const Student = ({ students, setStudents }) => {
     }
   };
 
-
   return (
     <div className="students">
       {students.map((student) => (
         <div key={student.id} className="student">
           <div className="student-head">
             <div className="status">
-              <p>
-                {renderStatus(student.status).text}
-              </p>
+              <p>{renderStatus(student.status).text}</p>
               <div
                 className="color-circle"
                 style={{ backgroundColor: renderStatus(student.status).color }}
@@ -70,36 +67,37 @@ const Student = ({ students, setStudents }) => {
           <p>{student.branch}</p>
           <p>ETS: {student.ets.split("T")[0]}</p>
           <div className="comment">
-            <br/>
+            <br />
             <p className="">Contact:</p>
             <p>{student.email}</p>
             <p>{student.phone}</p>
-          {/*
+            {/*
           <p>LinkedIn: {student.linkedin}</p>
           <p>GitHub: {student.github}</p> */}
             <div className="comment">
-            {Object.entries(student.comment)
-              ? Object.entries(student.comment).map(([key, value]) => (
-                  <p key={key}>
-                    {key} : {value}
-                  </p>
-                ))
-              : {}}
+              {Object.entries(student.comment)
+                ? Object.entries(student.comment).map(([key, value]) => (
+                    <p key={key}>
+                      {key} : {value}
+                    </p>
+                  ))
+                : {}}
             </div>
             <button onClick={() => openModal(student.id)}>
-            |Make a Comment|
+              |Make a Comment|
             </button>
 
-          {selectedStudent === student.id && (
-            <Modal
-              onClose={closeModal}
-              studentId={student.id}
-              students={students}
-              setStudents={setStudents}
-            />
-          )}
-          <br />
-    </div>
+            {selectedStudent === student.id && (
+              <Modal
+                onClose={closeModal}
+                studentId={student.id}
+                students={students}
+                setStudents={setStudents}
+              />
+            )}
+            <br />
+          </div>
+        </div>
       ))}
     </div>
   );
