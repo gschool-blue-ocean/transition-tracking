@@ -7,6 +7,7 @@ import { BsPersonPlus } from "react-icons/bs";
 import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
 
+
 function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
   const [activeItem, setActiveItem] = useState("dashboard");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,15 +25,6 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
     setIsModalOpen(false);
   };
 
-  // const handleCommentsModalOpen = () => {
-  //   //some code to access student.comments and display them in the modal
-  //   <Link to="/news"></Link>
-  //   // setIsCommentsOpen(true);
-  // };
-
-  const handleCommentsModalClose = () => {
-    setIsCommentsOpen(false);
-  };
 
   const handleAddStudent = (studentData) => {
     // Implement the logic to add the student to the 'students' state here.
@@ -41,6 +33,22 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
     console.log("Adding student:", studentData);
     handleModalClose();
   };
+
+  const exampleCohorts = [
+    'Cohort A',
+    'Cohort B',
+    'Cohort C',
+    'Cohort D',
+    // Add more cohorts as needed
+  ];
+  
+  const status = [
+    'more than 6 months prior ETS',
+    'within 6 months prior ETS',
+    'Separated',
+    // Add more cohorts as needed
+  ];
+  
 
   return (
     <div className="header">
@@ -58,6 +66,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
             </div>
             <div className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}>
               <Link to="/news">News</Link>
+
             </div>
             <div
               className={`nav-item3 ${activeItem === "help" ? "active" : ""}`}
@@ -109,6 +118,29 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
             }}
           >
             {/* Add input fields for student information */}
+            <Form.Group controlId="formCohort">
+            <Form.Label>Select Cohort</Form.Label>
+            <Form.Control as="select" required>
+              <option value="">-- Select Cohort --</option>
+              {exampleCohorts.map((cohort, index) => (
+                <option key={index} value={cohort}>
+                  {cohort}
+                </option>
+              ))}
+            </Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId="status">
+            <Form.Label>Student Status</Form.Label>
+            <Form.Control as="select" required>
+              <option value="">-- Select Status --</option>
+              {status.map((status, index) => (
+                <option key={index} value={status}>
+                  {status}
+                </option>
+              ))}
+            </Form.Control>
+            </Form.Group>
             <Form.Group controlId="formFirstName">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -184,6 +216,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
             Cancel
           </Button>
           <Button
+            className="custom-add-btn"
             variant="primary"
             onClick={() => handleAddStudent(/* Pass the form data here */)}
           >
@@ -191,35 +224,6 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
           </Button>
         </Modal.Footer>
       </Modal>
-
-      {/* Modal for comments */}
-      {/* <Modal show={isCommentsOpen} onHide={handleCommentsModalClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Comments</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {students.map((student) => (
-            <div key={student.id}>
-              <h4>{`${student.first_name} ${student.last_name}`}</h4>
-              <div className="comment">
-                {Object.entries(student.comment)
-                  ? Object.entries(student.comment).map(([key, value]) => (
-                      <p key={key}>
-                        {key}: {value}
-                      </p>
-                    ))
-                  : null}
-              </div>
-            </div>
-          ))}
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCommentsModalClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
     </div>
   );
 }

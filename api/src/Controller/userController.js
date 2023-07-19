@@ -139,7 +139,6 @@ export const delComment = async (req, res) => {
     const commentKey = req.body["key"];
     const comments = await db.query(delComm, [id]);
     const commentObject = comments.rows[0].comment;
-    
     delete commentObject[`${commentKey}`];
     
     const results = await db.query(postComment, [commentObject, id]);

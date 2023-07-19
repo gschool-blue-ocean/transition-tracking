@@ -24,7 +24,7 @@ const Student = ({ students, setStudents }) => {
   };
 
   const renderStatus = (status) => {
-    if (status === "within 6 months prior ETS") {
+    if (status === "within 6 months prior ETS" || status === "Clearing") {
       return {
         text: "In Process",
         color: "yellow",
@@ -93,6 +93,7 @@ const Student = ({ students, setStudents }) => {
             <p className="">Contact:</p>
             <p>{student.email}</p>
             <p>{student.phone}</p>
+
             {/*
           <p>LinkedIn: {student.linkedin}</p>
           <p>GitHub: {student.github}</p> */}
@@ -101,8 +102,9 @@ const Student = ({ students, setStudents }) => {
                 ? Object.entries(student.comment).map(([key, value]) => (
                     <p key={key}>
                       {key} : {value}
-                      <button className="m-[10px] fa fa-trash text-red-600" onClick={() => delComment(student.id, key)}>
-                        
+                      <button className="m-[10px] fa fa-trash text-red-600"
+                        onClick={() => delComment(student.id, key)
+                        }>                     
                       </button>
                     </p>
                   ))

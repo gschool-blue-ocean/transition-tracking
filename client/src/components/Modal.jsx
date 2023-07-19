@@ -16,7 +16,9 @@ function Modal({ onClose, studentId, setStudents }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     const result = axios.patch(`/api/students/${studentId}`, {
+
         comment: `${newComment}:${detail}`,
       })
       .then(() => {
