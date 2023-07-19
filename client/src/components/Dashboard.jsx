@@ -23,10 +23,10 @@ const Dashboard = ({ students }) => {
 
       if (status === "Seperated") {
         greenCount++;
-      } else if (status === "Clearing") {
-        yellowCount++;
-      } else {
+      } else if (status === "more than 6 months prior ETS") {
         redCount++;
+      } else {
+        yellowCount++;
       }
     });
 
@@ -37,7 +37,7 @@ const Dashboard = ({ students }) => {
 
   const colorBarHeight = (count) => {
     if (numberOfStudents === 0) {
-      return "0";
+      return 0;
     } else {
       return Math.floor((count / numberOfStudents) * 100);
     }

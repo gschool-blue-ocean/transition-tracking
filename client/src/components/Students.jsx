@@ -20,14 +20,14 @@ const Student = ({ students, setStudents }) => {
   };
 
   const renderStatus = (status) => {
-    if (status === "within 6 months prior ETS") {
+    if (status === "within 6 months prior ETS" || status === "Clearing") {
       return {
         text: "In Process",
         color: "yellow",
       };
     } else if (status === "Seperated") {
       return {
-        text: "Separated",
+        text: "Seperated",
         color: "green",
       };
     } else if (status === "more than 6 months prior ETS") {
