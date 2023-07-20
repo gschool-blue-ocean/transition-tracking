@@ -11,6 +11,9 @@ export default function Mcsp({
   setStudents,
   isDDOpen,
   setIsDDOpen,
+  activeItem,
+  setActiveItem,
+  handleItemClick,
 }) {
   return (
     <div className="app">
@@ -21,6 +24,9 @@ export default function Mcsp({
         setStudents={setStudents}
         isDDOpen={isDDOpen}
         setIsDDOpen={setIsDDOpen}
+        activeItem={activeItem}
+        setActiveItem={setActiveItem}
+        handleItemClick={handleItemClick}
       />
       <div className="dash">
         <Dashboard students={students} />

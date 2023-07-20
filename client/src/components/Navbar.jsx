@@ -15,7 +15,15 @@ function Navbar({
   setStudents,
   isDDOpen,
   setIsDDOpen,
+  activeItem,
+  setActiveItem,
+  handleItemClick,
 }) {
+    const isActive = (item) => {
+    return activeItem === item ? "active" : "";
+  }
+    // doulbe check closing bracket
+  
   const [activeItem, setActiveItem] = useState("dashboard");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
@@ -92,6 +100,7 @@ function Navbar({
     setIsModalOpen(false);
   };
 
+
   const handleAddStudent = () => {
     const commentCopy = {};
     commentCopy[`${commentKey}`] = `${commentValue}`;
@@ -148,6 +157,7 @@ function Navbar({
     "Office Hour Requested",
     "Family Emergency",
     "Other",
+
   ];
 
   const status = [
@@ -164,19 +174,25 @@ function Navbar({
         <div className="logo"></div>
         <div className="nav-bar">
           <div className="nav-items">
-            <div
+            <Link
+              to="/mcsp"
               className={`nav-item1 ${
                 activeItem === "dashboard" ? "active" : ""
               }`}
               onClick={() => handleItemClick("dashboard")}
             >
               Dashboard
-            </div>
-            <div
+              
+//need fix the bug: missing nav-item1
+
+            </Link>
+            <Link
+              to="/news"
               className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}
+              onClick={() => handleItemClick("news")}
             >
-              <Link to="/news">News</Link>
-            </div>
+              News
+            </Link>
             <div
               className={`nav-item3 ${activeItem === "help" ? "active" : ""}`}
               onClick={() => handleItemClick("help")}
@@ -229,6 +245,7 @@ function Navbar({
             {/* Add input fields for student information */}
             <Form.Group controlId="formCohort">
               <Form.Label>Select Cohort</Form.Label>
+
               <Form.Control
                 as="select"
                 value={studentCohort}
@@ -239,6 +256,7 @@ function Navbar({
                 {cohort.map((cohorts) => (
                   <option key={cohorts.cohort_id} value={cohorts.cohort_id}>
                     {cohorts.cohort_id}
+
                   </option>
                 ))}
               </Form.Control>
@@ -246,12 +264,14 @@ function Navbar({
 
             <Form.Group controlId="status">
               <Form.Label>Student Status</Form.Label>
+
               <Form.Control
                 as="select"
                 value={studentStatus}
                 onChange={handleStudentStatus}
                 required
               >
+
                 <option value="">-- Select Status --</option>
                 {status.map((status, index) => (
                   <option key={index} value={status}>

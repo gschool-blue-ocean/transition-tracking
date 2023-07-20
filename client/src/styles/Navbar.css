@@ -14,93 +14,88 @@
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  background: linear-gradient(135deg, #DE7451 0%, #4e304d 100%);
-    }
-    
-    .nav-bar {
-    width: 30%;
-    height: 3rem;
-    flex-shrink: 0;
-    border-radius: 36.5px;
-    background: rgba(23, 23, 23, 0.50);
-    }
-    
-    .nav-items {
-        display: flex;
-        justify-content: space-between;
-    }
-    .nav-item1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: rgb(255, 255, 255);
-        width: 30%;
-        height: 3rem;
-        flex-shrink: 0;
-        color: #ffffff;
-        font-family: sans-serif;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
+  background: linear-gradient(135deg, #de7451 0%, #4e304d 100%);
+}
 
-      
-    
-      .nav-item2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 30%;
-        height: 3rem;
-        flex-shrink: 0;
-        color: #f1f0f0;
-        font-family: sans-serif;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
+.nav-bar {
+  width: 30%;
+  height: 3rem;
+  flex-shrink: 0;
+  border-radius: 36.5px;
+  background: rgba(23, 23, 23, 0.5);
+}
 
-      
-    
-    
-      .nav-item3 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 30%;
-        height: 3rem;
-        flex-shrink: 0;
-        color: #ffffff;
-        font-family: sans-serif;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
-    
-      .nav-item1.active,
-      .nav-item2.active,
-      .nav-item3.active {
-        background-color: #ffffff;
-        border-radius: 30px;
-        color: #0a0a0a;
-        height: 2.55rem;
-        margin-top: 3.7px;
-        margin-left: 3.7px;
-        margin-right: 3.7px;
-      }
-      
-      .nav-item1:hover,
-      .nav-item2:hover,
-      .nav-item3:hover {
-        color: #c3c2c2;
-      }
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-item1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  width: 30%;
+  height: 3rem;
+  flex-shrink: 0;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
 
+.nav-item2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 3rem;
+  flex-shrink: 0;
+  color: #f1f0f0;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
 
-      
-    /* Add CSS for the dropdown menu */
+.nav-item3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 3rem;
+  flex-shrink: 0;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.nav-item1.active,
+.nav-item2.active,
+.nav-item3.active {
+  background-color: #ffffff;
+  border-radius: 30px;
+  color: #0a0a0a;
+  height: 2.55rem;
+  margin-top: 3.7px;
+  margin-left: 3.7px;
+  margin-right: 3.7px;
+}
+
+.nav-item1:hover,
+.nav-item2:hover,
+.nav-item3:hover {
+  color: #c3c2c2;
+}
+
+/* Add CSS for the dropdown menu */
 /* Updated Dropdown Styles */
 
 /* Updated CSS with Smaller Dropdown Width */
@@ -111,7 +106,6 @@
   gap: 5px;
   height: 80%;
   margin-top: 4px;
-  
 }
 
 .classes {
@@ -149,7 +143,6 @@
   align-items: center;
 }
 
-
 .dropdown-item {
   display: block;
   padding: 10px 43px;
@@ -161,7 +154,6 @@
 .dropdown-item:hover {
   background-color: #9b9b9b;
 }
-
 
 .add-student {
   background-color: #00000073;
@@ -176,59 +168,55 @@
 }
 
 .modal-body input[type="tel"],
-  .modal-body input[type="email"],
-  .modal-body input[type="url"],
-  .modal-body textarea
+.modal-body input[type="email"],
+.modal-body input[type="url"],
+.modal-body textarea {
+  background-color: #232323;
+  border: 1px solid #4e4e4e;
+  color: #dad9d9;
+}
+.modal-body select {
+  background-color: #232323;
+  border: 1px solid #4e4e4e;
+  color: #dad9d9;
+}
 
-   {
-	background-color: #232323;
-	border: 1px solid #4e4e4e;
-	color:#dad9d9;
-	
-  }
-  .modal-body select {
-    background-color: #232323;
-    border: 1px solid #4e4e4e;
-    color: #dad9d9;
-  }
+.modal-body select::-ms-expand {
+  color: #dad9d9; /* For Internet Explorer */
+}
 
-  .modal-body select::-ms-expand {
-    color: #dad9d9; /* For Internet Explorer */
-  }
-  
-  /* You can also change the arrow appearance in other browsers if needed */
-  .modal-body select::after {
-    content: '\f0d7'; /* FontAwesome chevron-down icon */
-    font-family: 'FontAwesome'; /* Load the FontAwesome font-family */
-    font-size: 12px;
-    color: #dad9d9;
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-  }
+/* You can also change the arrow appearance in other browsers if needed */
+.modal-body select::after {
+  content: "\f0d7"; /* FontAwesome chevron-down icon */
+  font-family: "FontAwesome"; /* Load the FontAwesome font-family */
+  font-size: 12px;
+  color: #dad9d9;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
 
-  .custom-add-btn {
-    background-color: #6c757d;
-    color: #ffffff;
-    margin-top: 2px;
-    padding: 6px;
-    width: 4.3rem;
-    }
-    
-    /* Custom styles for the submit button inside the modal when it's being hovered */
-    .custom-add-btn:hover {
-      background-color: #5f676d;
-      color: #ffffff;
-      margin-top: 2px;
-      padding: 6px;
-      width: 4.3rem;
-    }
-    
-    /* Custom styles for the submit button inside the modal when it's active (clicked) */
-    .custom-add-btn:active {
-    background-color: #d17e00;
-    border-color: #d17e00;
-    }
-    
+.custom-add-btn {
+  background-color: #6c757d;
+  color: #ffffff;
+  margin-top: 2px;
+  padding: 6px;
+  width: 4.3rem;
+}
+
+/* Custom styles for the submit button inside the modal when it's being hovered */
+.custom-add-btn:hover {
+  background-color: #5f676d;
+  color: #ffffff;
+  margin-top: 2px;
+  padding: 6px;
+  width: 4.3rem;
+}
+
+/* Custom styles for the submit button inside the modal when it's active (clicked) */
+.custom-add-btn:active {
+  background-color: #d17e00;
+  border-color: #d17e00;
+}
