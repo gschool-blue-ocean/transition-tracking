@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../styles/modal.css";
+import "../styles/Modal.css";
 
 function Modal({ onClose, studentId, setStudents }) {
   const [newComment, setComment] = useState("");
