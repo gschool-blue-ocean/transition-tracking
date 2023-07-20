@@ -11,9 +11,7 @@ const App = () => {
   const [cohort, setCohort] = useState([]);
   const [students, setStudents] = useState([]);
   const [isDDOpen, setIsDDOpen] = useState(false);
-
   const [activeItem, setActiveItem] = useState("dashboard");
-
 
   useEffect(() => {
     console.log("from app: ", setStudents);
@@ -24,12 +22,10 @@ const App = () => {
       });
   }, []);
 
-
   const handleItemClick = (item) => {
     setActiveItem(item);
     console.log("activeItem: ", activeItem);
   };
-
 
   return (
     <div className="App">
@@ -55,18 +51,14 @@ const App = () => {
             element={
               <Mcsp
                 cohort={cohort}
-
                 setCohort={setCohort}
-
                 students={students}
                 setStudents={setStudents}
                 isDDOpen={isDDOpen}
                 setIsDDOpen={setIsDDOpen}
-
                 activeItem={activeItem}
                 setActiveItem={setActiveItem}
                 handleItemClick={handleItemClick}
-
               />
             }
           />
@@ -80,11 +72,9 @@ const App = () => {
                 setStudents={setStudents}
                 isDDOpen={isDDOpen}
                 setIsDDOpen={setIsDDOpen}
-
                 activeItem={activeItem}
                 setActiveItem={setActiveItem}
                 handleItemClick={handleItemClick}
-
               />
             }
           />
