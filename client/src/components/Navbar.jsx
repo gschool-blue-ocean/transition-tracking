@@ -62,7 +62,6 @@ function Navbar({
         <div className="nav-bar">
           <div className="nav-items">
             <Link
-              className={"nav-item1"}
               to="/mcsp"
               className={`nav-item1 ${
                 activeItem === "dashboard" ? "active" : ""
@@ -72,7 +71,6 @@ function Navbar({
               Dashboard
             </Link>
             <Link
-              className={"nav-item2"}
               to="/news"
               className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}
               onClick={() => handleItemClick("news")}
