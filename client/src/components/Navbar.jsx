@@ -8,7 +8,14 @@ import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
+function Navbar({
+  cohort,
+  setCohort,
+  students,
+  setStudents,
+  isDDOpen,
+  setIsDDOpen,
+}) {
   const [activeItem, setActiveItem] = useState("dashboard");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
@@ -119,7 +126,12 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
       })
       .then((res) => {
         console.log("Student created!", res.data);
-        setStudents;
+        fetch(`/api/cohort/${studentCohort}`)
+          .then((res) => res.json())
+          .then((students) => {
+            console.log(students);
+            setStudents(students);
+          });
       })
       .catch((error) => {
         console.error(error);
