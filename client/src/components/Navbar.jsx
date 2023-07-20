@@ -65,7 +65,7 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
               Dashboard
             </div>
             <div className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}>
-              <Link to="/news">News</Link>
+              <Link className="nav-item2"to="/news">News</Link>
 
             </div>
             <div

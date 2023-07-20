@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  background: linear-gradient(135deg, #DE7451 0%, #4e304d 100%);
+  background:  #030303;
     }
     
     .nav-bar {
@@ -22,7 +22,7 @@
     height: 3rem;
     flex-shrink: 0;
     border-radius: 36.5px;
-    background: rgba(23, 23, 23, 0.50);
+    background: rgb(61 61 61 / 54%);
     }
     
     .nav-items {
@@ -60,6 +60,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        text-decoration: none;
       }
 
       
@@ -115,7 +116,8 @@
 }
 
 .classes {
-  background-color: #00000073;
+  background-color: #5e5e5e59;
+  border: 1px solid #ffffff4d;
   color: #ffffff;
   padding: 10px 20px;
   cursor: pointer;
@@ -164,7 +166,8 @@
 
 
 .add-student {
-  background-color: #00000073;
+  background-color: #5e5e5e59;
+  border: 1px solid #ffffff4d;
   color: #ffffff;
   padding: 10px 20px;
   cursor: pointer;

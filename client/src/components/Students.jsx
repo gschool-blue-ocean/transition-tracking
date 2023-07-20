@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "./Modal";
 import "../styles/Students.css";
+import { BiMessageRoundedAdd } from "react-icons/bi";
 
 const Student = ({ students, setStudents }) => {
   const [showModal, setShowModal] = useState(false);
 
   const [selectedStudent, setSelectedStudent] = useState(null);
+  const [expandedCardId, setExpandedCardId] = useState(null);
   // console.log("from students: ", setStudents);
   // student.branch
   // Tayla's added code with html
@@ -70,9 +72,12 @@ const Student = ({ students, setStudents }) => {
   };
 
   return (
-    <div className="students">
+    <div className={`students ${expandedCardId ? "expanded" : ""}`}>
       {students.map((student) => (
-        <div key={student.id} className="student">
+        <div key={student.id} 
+        className={`student ${expandedCardId === student.id ? "expanded" : ""}`}
+        onClick={() => setExpandedCardId((prevId) => (prevId === student.id ? null : student.id))}
+        >
           <div className="student-head">
             <div className="status">
               <p>{renderStatus(student.status).text}</p>
@@ -85,18 +90,24 @@ const Student = ({ students, setStudents }) => {
               {student.first_name} {student.last_name}
             </h2>
           </div>
-          <br />
           <p>{student.branch}</p>
           <p>ETS: {student.ets.split("T")[0]}</p>
           <div className="comment">
             <br />
-            <p className="">Contact:</p>
+            <p className="contact">Contact:</p>
             <p>{student.email}</p>
             <p>{student.phone}</p>
-
-            {/*
-          <p>LinkedIn: {student.linkedin}</p>
-          <p>GitHub: {student.github}</p> */}
+            <br/>
+            
+          <p className="urls">LinkedIn:</p>
+          <p>{student.linkedin} </p>
+          <p className="urls">GitHub:</p>
+          <p>{student.github} </p>
+          <div className="urls">Appts & Comments
+          <button className="comment-btn"onClick={() => openModal(student.id)}>
+              <BiMessageRoundedAdd/>
+            </button>
+            </div>
             <div className="comment">
               {Object.entries(student.comment)
                 ? Object.entries(student.comment).map(([key, value]) => (
@@ -110,9 +121,7 @@ const Student = ({ students, setStudents }) => {
                   ))
                 : {}}
             </div>
-            <button onClick={() => openModal(student.id)}>
-              |Make a Comment|
-            </button>
+            
 
             {selectedStudent === student.id && (
               <Modal
