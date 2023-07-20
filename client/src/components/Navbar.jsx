@@ -6,6 +6,7 @@ import { MdMenu, MdMenuOpen } from "react-icons/md";
 import { BsPersonPlus } from "react-icons/bs";
 import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
   const [activeItem, setActiveItem] = useState("dashboard");
@@ -85,9 +86,9 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
   };
 
   const handleAddStudent = () => {
-    // Implement the logic to add the student to the 'students' state here.
-    // studentData contains the form input values (first name, last name, etc.).
-    // You can add the studentData to the 'students' state or send it to an API, depending on your app's requirements.
+    const commentCopy = {};
+    commentCopy[`${commentKey}`] = `${commentValue}`;
+    const comment = JSON.stringify(commentCopy);
     console.log(
       "Adding student:",
       studentCohort,
@@ -100,9 +101,30 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
       email,
       linkedin,
       github,
-      commentKey,
-      commentValue
+      `${commentKey}:${commentValue}`
     );
+    const result = axios
+      .post(`/api/students`, {
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        phone: phoneNumber,
+        branch: branch,
+        status: studentStatus,
+        ets: ets,
+        linkedin: linkedin,
+        github: github,
+        comment: comment,
+        cohort_id: studentCohort,
+      })
+      .then((res) => {
+        console.log("Student created!", res.data);
+        setStudents;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
     handleModalClose();
   };
 
