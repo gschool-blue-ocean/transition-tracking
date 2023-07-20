@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../styles/modal.css";
 
 function Modal({ onClose, studentId, setStudents }) {
   const [newComment, setComment] = useState("");
@@ -35,58 +36,40 @@ function Modal({ onClose, studentId, setStudents }) {
       });
     onClose();
   };
+
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center">
-      <form
-        className="max-w-[30%] w-full mx-auto p-10 px-10 rounded-lg"
-        style={{
-          background:
-            "linear-gradient(135deg, #0D0F47 0%, #DE7451 50%, #0D0F47 25%, #DE7451 75%)",
-        }}
-        onSubmit={handleSubmit}
-      >
+    <div className="fixed-modal">
+      <form className="modal-form" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="comment">Comment:</label>
+          <label className="label" htmlFor="comment">
+            Comment:
+          </label>
           <input
             id="comment"
-            className="w-full my-5 py-2"
+            className="input"
             value={newComment}
             type="text"
             onChange={handleComment}
-            style={{
-              height: "50px",
-              marginTop: "auto",
-              marginBottom: "auto",
-              borderRadius: "5px",
-              color: "black",
-            }}
           />
         </div>
         <div>
-          <label htmlFor="detail">Details:</label>
+          <label className="label" htmlFor="detail">
+            Details:
+          </label>
           <input
             id="detail"
-            className="w-full my-5 py-2"
+            className="input"
             value={detail}
             type="text"
             onChange={handleDetail}
-            style={{
-              height: "50px",
-              marginTop: "auto",
-              marginBottom: "auto",
-              borderRadius: "5px",
-              color: "black",
-            }}
           />
         </div>
-        <button
-          className="w-full my-5 py-2 bg-orange-500 shadow-lg shadow-purple-500/50 hover:shadow-purple-500/40 text-white font-semibold rounded-lg"
-          type="submit"
-        >
+        <button className="submit-btn" type="submit">
           Send
         </button>
       </form>
     </div>
   );
 }
+
 export default Modal;
