@@ -36,12 +36,11 @@
   color: black;
 }
 
-.submit-btn {
-  width: 100%;
+.buttons {
   height: 50px;
   margin: 5px 0;
   padding: 10px;
-  background-color: 292929;
+  background-color:black;
   color: white;
   font-weight: bold;
   border: none;
