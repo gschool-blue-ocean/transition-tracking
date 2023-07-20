@@ -175,8 +175,12 @@ function Navbar({
               onClick={() => handleItemClick("dashboard")}
             >
               Dashboard
-            </div>
-            <Link to="/news" className={`nav-item2 ${activeItem === "news" ? "active" : ""}`} onClick={() => handleItemClick('news')}>
+              </Link>
+            <Link
+              to="/news"
+              className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}
+              onClick={() => handleItemClick("news")}
+            >
               News
             </Link>
             <div

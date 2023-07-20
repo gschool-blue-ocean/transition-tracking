@@ -112,7 +112,7 @@
 	background-color: #ffffff; /* Set your desired background color for the submenu */
 	padding: 10px;
 	margin: 0;
-	border-radius: ;
+	border-radius: 5px;
   }
   
   .menu1 li:hover ul {
