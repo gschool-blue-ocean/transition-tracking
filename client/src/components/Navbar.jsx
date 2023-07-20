@@ -19,12 +19,10 @@ function Navbar({
   setActiveItem,
   handleItemClick,
 }) {
-    const isActive = (item) => {
+  const isActive = (item) => {
     return activeItem === item ? "active" : "";
-  }
-    // doulbe check closing bracket
-  
-  const [activeItem, setActiveItem] = useState("dashboard");
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
@@ -88,10 +86,6 @@ function Navbar({
     setCommentValue(e.target.value);
   };
 
-  const handleItemClick = (item) => {
-    setActiveItem(item);
-  };
-
   const handleModalOpen = () => {
     setIsModalOpen(true);
   };
@@ -99,7 +93,6 @@ function Navbar({
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
-
 
   const handleAddStudent = () => {
     const commentCopy = {};
@@ -157,7 +150,6 @@ function Navbar({
     "Office Hour Requested",
     "Family Emergency",
     "Other",
-
   ];
 
   const status = [
@@ -182,9 +174,6 @@ function Navbar({
               onClick={() => handleItemClick("dashboard")}
             >
               Dashboard
-              
-//need fix the bug: missing nav-item1
-
             </Link>
             <Link
               to="/news"
@@ -256,7 +245,6 @@ function Navbar({
                 {cohort.map((cohorts) => (
                   <option key={cohorts.cohort_id} value={cohorts.cohort_id}>
                     {cohorts.cohort_id}
-
                   </option>
                 ))}
               </Form.Control>
@@ -271,7 +259,6 @@ function Navbar({
                 onChange={handleStudentStatus}
                 required
               >
-
                 <option value="">-- Select Status --</option>
                 {status.map((status, index) => (
                   <option key={index} value={status}>
