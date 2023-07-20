@@ -54,11 +54,11 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
               }`}
               onClick={() => handleItemClick("dashboard")}
             >
-              Dashboard
+              <Link className="nav-item1" to="/mcsp" >Dashboard</Link>
             </div>
-            <div className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}>
-              <Link to="/news">News</Link>
-            </div>
+            <Link to="/news" className={`nav-item2 ${activeItem === "news" ? "active" : ""}`} onClick={() => handleItemClick('news')}>
+              News
+            </Link>
             <div
               className={`nav-item3 ${activeItem === "help" ? "active" : ""}`}
               onClick={() => handleItemClick("help")}
