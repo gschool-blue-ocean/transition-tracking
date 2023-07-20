@@ -7,14 +7,21 @@ import { BsPersonPlus } from "react-icons/bs";
 import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
 
-
-function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
-  const [activeItem, setActiveItem] = useState("dashboard");
+function Navbar({
+  cohort,
+  students,
+  setStudents,
+  isDDOpen,
+  setIsDDOpen,
+  activeItem,
+  setActiveItem,
+  handleItemClick,
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
-  const handleItemClick = (item) => {
-    setActiveItem(item);
+  const isActive = (item) => {
+    return activeItem === item ? "active" : "";
   };
 
   const handleModalOpen = () => {
@@ -25,7 +32,6 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
     setIsModalOpen(false);
   };
 
-
   const handleAddStudent = (studentData) => {
     // Implement the logic to add the student to the 'students' state here.
     // studentData contains the form input values (first name, last name, etc.).
@@ -35,20 +41,19 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
   };
 
   const exampleCohorts = [
-    'Cohort A',
-    'Cohort B',
-    'Cohort C',
-    'Cohort D',
+    "Cohort A",
+    "Cohort B",
+    "Cohort C",
+    "Cohort D",
     // Add more cohorts as needed
   ];
-  
+
   const status = [
-    'more than 6 months prior ETS',
-    'within 6 months prior ETS',
-    'Separated',
+    "more than 6 months prior ETS",
+    "within 6 months prior ETS",
+    "Separated",
     // Add more cohorts as needed
   ];
-  
 
   return (
     <div className="header">
@@ -56,18 +61,24 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
         <div className="logo"></div>
         <div className="nav-bar">
           <div className="nav-items">
-            <div
+            <Link
+              className={"nav-item1"}
+              to="/mcsp"
               className={`nav-item1 ${
                 activeItem === "dashboard" ? "active" : ""
               }`}
               onClick={() => handleItemClick("dashboard")}
             >
               Dashboard
-            </div>
-            <div className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}>
-              <Link to="/news">News</Link>
-
-            </div>
+            </Link>
+            <Link
+              className={"nav-item2"}
+              to="/news"
+              className={`nav-item2 ${activeItem === "news" ? "active" : ""}`}
+              onClick={() => handleItemClick("news")}
+            >
+              News
+            </Link>
             <div
               className={`nav-item3 ${activeItem === "help" ? "active" : ""}`}
               onClick={() => handleItemClick("help")}
@@ -119,27 +130,27 @@ function Navbar({ cohort, students, setStudents, isDDOpen, setIsDDOpen }) {
           >
             {/* Add input fields for student information */}
             <Form.Group controlId="formCohort">
-            <Form.Label>Select Cohort</Form.Label>
-            <Form.Control as="select" required>
-              <option value="">-- Select Cohort --</option>
-              {exampleCohorts.map((cohort, index) => (
-                <option key={index} value={cohort}>
-                  {cohort}
-                </option>
-              ))}
-            </Form.Control>
+              <Form.Label>Select Cohort</Form.Label>
+              <Form.Control as="select" required>
+                <option value="">-- Select Cohort --</option>
+                {exampleCohorts.map((cohort, index) => (
+                  <option key={index} value={cohort}>
+                    {cohort}
+                  </option>
+                ))}
+              </Form.Control>
             </Form.Group>
 
             <Form.Group controlId="status">
-            <Form.Label>Student Status</Form.Label>
-            <Form.Control as="select" required>
-              <option value="">-- Select Status --</option>
-              {status.map((status, index) => (
-                <option key={index} value={status}>
-                  {status}
-                </option>
-              ))}
-            </Form.Control>
+              <Form.Label>Student Status</Form.Label>
+              <Form.Control as="select" required>
+                <option value="">-- Select Status --</option>
+                {status.map((status, index) => (
+                  <option key={index} value={status}>
+                    {status}
+                  </option>
+                ))}
+              </Form.Control>
             </Form.Group>
             <Form.Group controlId="formFirstName">
               <Form.Label>First Name</Form.Label>
