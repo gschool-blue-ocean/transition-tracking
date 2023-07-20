@@ -10,34 +10,40 @@ export default function News({
   setStudents,
   isDDOpen,
   setIsDDOpen,
+  activeItem,
+  setActiveItem,
+  handleItemClick,
 }) {
   return (
     <div className="app">
-    <div>
-      <Navbar
-        cohort={cohort}
-        students={students}
-        setStudents={setStudents}
-        isDDOpen={isDDOpen}
-        setIsDDOpen={setIsDDOpen}
-      />
+      <div>
+        <Navbar
+          cohort={cohort}
+          students={students}
+          setStudents={setStudents}
+          isDDOpen={isDDOpen}
+          setIsDDOpen={setIsDDOpen}
+          activeItem={activeItem}
+          setActiveItem={setActiveItem}
+          handleItemClick={handleItemClick}
+        />
       </div>
       <div>
-      {students.map((student) => (
-            <div key={student.id}>
-              <h4>{`${student.first_name} ${student.last_name}`}</h4>
-              <div className="comment">
-                {Object.entries(student.comment)
-                  ? Object.entries(student.comment).map(([key, value]) => (
-                      <p key={key}>
-                        {key}: {value}
-                      </p>
-                    ))
-                  : null}
-              </div>
+        {students.map((student) => (
+          <div key={student.id}>
+            <h4>{`${student.first_name} ${student.last_name}`}</h4>
+            <div className="comment">
+              {Object.entries(student.comment)
+                ? Object.entries(student.comment).map(([key, value]) => (
+                    <p key={key}>
+                      {key}: {value}
+                    </p>
+                  ))
+                : null}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
