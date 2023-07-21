@@ -97,3 +97,61 @@
   align-items: center;
   margin-top: 2rem;
 }
+
+.ref {
+  margin-top: 20px;
+  background: rgba(53, 53, 53, 0.555);
+  width: 90%;
+  height: 6rem;
+  padding: 10px;
+  border-radius: 10px;
+  color: #dbdada;
+}
+
+.yellow {
+display: flex;
+gap: 10px;
+align-items: center;
+font-size: 15px;
+margin-bottom: 5px;
+justify-content: space-between;
+}
+
+.dot1 {
+  width: 1rem;
+  height: 1rem;
+  border: 0.5px solid rgb(203, 203, 203);
+  background: yellow;
+}
+
+.red {
+display: flex;
+gap: 10px;
+align-items: center;
+font-size: 15px;
+margin-bottom: 5px;
+justify-content: space-between;
+}
+
+.dot2 {
+  width: 1rem;
+  height: 1rem;
+  border: 0.5px solid rgb(203, 203, 203);
+  background: rgb(255, 0, 0);
+}
+
+.green {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 15px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  }
+  
+  .dot3 {
+    width: 1rem;
+    height: 1rem;
+    border: 0.5px solid rgb(203, 203, 203);
+    background: rgb(1, 227, 42);
+  }

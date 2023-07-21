@@ -395,7 +395,7 @@ function Navbar({
           </Button>
           <Button
             className="custom-add-btn"
-            variant="primary"
+            variant="secondary"
             onClick={() => handleAddStudent()}
           >
             Add

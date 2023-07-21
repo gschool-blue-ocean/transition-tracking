@@ -2,7 +2,7 @@ import React from "react";
 import Students from "./Students";
 import Navbar from "./Navbar";
 import Dashboard from "./Dashboard";
-import "../styles/Mcsp.css";
+import "../styles/News.css";
 
 export default function News({
   cohort,
@@ -14,6 +14,11 @@ export default function News({
   setActiveItem,
   handleItemClick,
 }) {
+
+
+
+
+
   return (
     <div className="app">
       <div>
@@ -28,22 +33,35 @@ export default function News({
           handleItemClick={handleItemClick}
         />
       </div>
-      <div>
+      <div className="calendar-container">
         {students.map((student) => (
-          <div key={student.id}>
-            <h4>{`${student.first_name} ${student.last_name}`}</h4>
-            <div className="comment">
-              {Object.entries(student.comment)
-                ? Object.entries(student.comment).map(([key, value]) => (
-                    <p key={key}>
-                      {key}: {value}
-                    </p>
-                  ))
-                : null}
-            </div>
+          <div key={student.id} className="calendar-item">
+            <div className="date">{`${student.first_name} ${student.last_name}`}</div>
+            {Object.entries(student.comment)
+              ? Object.entries(student.comment).map(([key, value]) => {
+                  // Check if the comment starts with "Clearing Appointment"
+                  if (value.startsWith("Clearing Appointment:")) {
+                    const [_, date, time, eventDescription] = value.split(": ");
+                    return (
+                      <div key={key}>
+                        <div className="time">{time}</div>
+                        <div className="event-description">{eventDescription}</div>
+                      </div>
+                    );
+                  } else {
+                    // Render other comments as usual
+                    return (
+                      <p key={key} className="comment">
+                        {key}: {value}
+                      </p>
+                    );
+                  }
+                })
+              : null}
           </div>
         ))}
       </div>
     </div>
   );
 }
+
