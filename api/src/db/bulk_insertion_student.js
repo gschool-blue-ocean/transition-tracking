@@ -50,7 +50,7 @@ for (let i = 0; i < 100; i++) {
       "Clearing Appointment",
       "Office Hour Requested",
       "Family Emergency",
-      "No Reason Specified",
+      "Other",
     ]);
     const commentDetail1 = faker.date
       .future({ years: 1 })
@@ -73,7 +73,7 @@ for (let i = 0; i < 100; i++) {
         "Clearing Appointment",
         "Office Hour Requested",
         "Family Emergency",
-        "No Reason Specified",
+        "Other",
       ]);
       const commentDetail1 = faker.date
         .future({ years: 1 })
