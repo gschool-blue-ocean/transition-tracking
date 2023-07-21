@@ -112,7 +112,7 @@
 	background-color: #ffffff; /* Set your desired background color for the submenu */
 	padding: 10px;
 	margin: 0;
-	border-radius: ;
+	border-radius: 4px;
   }
   
   .menu1 li:hover ul {
@@ -147,11 +147,9 @@
 
 .mockup {
 	position: absolute;
-	top: 0;
-	right: 0;
-	padding-top: 2rem;
-	max-width: 45%;
-	height: auto;
-	margin-left: 900px;
-	margin-top: 125px;
+    top: 0;
+    right: 0;
+    max-width: 55%;
+    height: auto;
+    margin-top: 38px;
 }

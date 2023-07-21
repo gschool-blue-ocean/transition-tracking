@@ -84,6 +84,24 @@ const Dashboard = ({ students }) => {
               ></div>
             </div>
           </div>
+
+        </div>
+      </div>
+      <div className="ref">
+        <div className="yellow">
+          <p>within 6 months prior ETS</p>
+          <div className="dot1"> 
+          </div>
+        </div>
+        <div className="red">
+          <p>more than 6 months prior ETS</p>
+          <div className="dot2"> 
+          </div>
+        </div>
+        <div className="green">
+          <p>has received DD214</p>
+          <div className="dot3"> 
+          </div>
         </div>
       </div>
     </div>

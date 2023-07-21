@@ -37,6 +37,10 @@ function Modal({ onClose, studentId, setStudents }) {
     onClose();
   };
 
+  const handleCancel = () => {
+    onClose();
+  };
+
   return (
     <div className="fixed-modal">
       <form className="modal-form" onSubmit={handleSubmit}>
@@ -64,9 +68,14 @@ function Modal({ onClose, studentId, setStudents }) {
             onChange={handleDetail}
           />
         </div>
-        <button className="submit-btn" type="submit">
-          Send
-        </button>
+        <div className="buttons">
+          <button className="cancel-btn" type="button" onClick={handleCancel}>
+            Cancel
+          </button>
+          <button className="submit-btn" type="submit">
+            Send
+          </button>
+        </div>
       </form>
     </div>
   );

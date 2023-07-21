@@ -1,0 +1,33 @@
+.calendar-container {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+  
+  /* Style for individual calendar items */
+  .calendar-item {
+    padding: 10px;
+    border: 1px solid #545454;
+    border-radius: 5px;
+    background-color: #141414;
+  }
+  
+  /* Style for date */
+  .date {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  /* Style for time */
+  .time {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Style for event description */
+  .event-description {
+    font-size: 14px;
+  }
+  

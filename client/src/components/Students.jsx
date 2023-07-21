@@ -6,7 +6,6 @@ import { BiMessageRoundedAdd } from "react-icons/bi";
 
 const Student = ({ students, setStudents }) => {
   const [showModal, setShowModal] = useState(false);
-
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [expandedCardId, setExpandedCardId] = useState(null);
   // console.log("from students: ", setStudents);
@@ -75,7 +74,8 @@ const Student = ({ students, setStudents }) => {
     <div className={`students ${expandedCardId ? "expanded" : ""}`}>
       {students.map((student) => (
         <div key={student.id} 
-        className={`student ${expandedCardId === student.id ? "expanded" : ""}`}
+        className={`student ${
+          expandedCardId === student.id ? "expanded" : ""}`}
         onClick={() => setExpandedCardId((prevId) => (prevId === student.id ? null : student.id))}
         >
           <div className="student-head">
